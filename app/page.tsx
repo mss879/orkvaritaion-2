@@ -2,9 +2,41 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Search, ArrowRight, Users, Zap, Eye, BellOff, ShoppingBag, Database, Server, Layout, MessageSquare, Mail, BarChart3, Smartphone, Workflow, Layers, Box, Globe, Cpu, Radio, Plug, Play, TrendingUp, CheckCircle2, Sparkles } from 'lucide-react';
+import {
+  ArrowRight,
+  ArrowUp,
+  AudioLines,
+  BarChart3,
+  BellOff,
+  Box,
+  CheckCircle2,
+  Cpu,
+  Database,
+  Eye,
+  Globe,
+  Layout,
+  Layers,
+  Mail,
+  MessageSquare,
+  Mic,
+  Paperclip,
+  Play,
+  Plug,
+  Plus,
+  Radio,
+  Search,
+  Server,
+  ShoppingBag,
+  Smartphone,
+  Sparkles,
+  TrendingUp,
+  Users,
+  Workflow,
+  Zap,
+} from 'lucide-react';
 import LightRays from '@/components/LightRays';
 import FloatingNavbar from '@/components/FloatingNavbar';
+import HowItWorks from '@/components/HowItWorks';
 
 const QUERIES = [
   'where am I are loosing revenue',
@@ -17,7 +49,67 @@ export default function Home() {
   const [currentQueryIndex, setCurrentQueryIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(100);
+  const [typingSpeed, setTypingSpeed] = useState(55);
+
+  const insightCards = [
+    {
+      title: 'High value lapsing',
+      metric: '183 customers at risk',
+      moneyTop: '$9.4k to $14.2k',
+      moneyBottom: 'recoverable this month',
+      body:
+        'Customers who used to buy often and have gone quiet for over their regular time. Perfect for a sharp, respectful winback instead of another broad blast.',
+      cta: 'Run this winback',
+      Icon: Users,
+      dotClassName: 'bg-orange-500',
+      pingClassName: 'bg-orange-400',
+    },
+    {
+      title: 'Ready to buy now',
+      metric: '276 likely buyers',
+      moneyTop: '$8.1k to $11.7k',
+      moneyBottom: 'within 30 days',
+      body:
+        'People who browsed in a very similar pattern to those who bought but had strange cut offs. Ideal for a focused SKU lead nudge that feels timely, not spammy.',
+      cta: 'Run this nudge',
+      Icon: Zap,
+      dotClassName: 'bg-orange-500',
+      pingClassName: 'bg-orange-400',
+    },
+    {
+      title: 'Overlooked buyers',
+      metric: '7,000 Likely buyers',
+      moneyTop: '$55.5k to $90.8k',
+      moneyBottom: 'potential revenue',
+      body:
+        'Overlooked customers that aren’t in your chosen segment but have several attributes that relates to the overall campaign and content.',
+      cta: 'Run this segment',
+      Icon: Eye,
+      dotClassName: 'bg-orange-500',
+    },
+    {
+      title: 'Over-messaged VIPs',
+      metric: '94 VIPs on the edge',
+      moneyTop: 'Protect $3.2k',
+      moneyBottom: 'in monthly margin',
+      body:
+        'Top spenders who have seen too many emails and ads this week. Orkestrate cools them off so they do not unsubscribe.',
+      cta: 'Apply this guardrail',
+      Icon: BellOff,
+      dotClassName: 'bg-orange-500',
+    },
+    {
+      title: 'Next best product',
+      metric: '211 cross sell candidates',
+      moneyTop: '$6.5k to $9.8k',
+      moneyBottom: 'incremental revenue',
+      body:
+        'Customers who bought Product A and showed interest in Product B but never finished. Clean, relevant cross sell that feels like a helpful suggestion.',
+      cta: 'Launch this cross sell',
+      Icon: ShoppingBag,
+      dotClassName: 'bg-orange-500',
+    },
+  ] as const;
 
   useEffect(() => {
     const currentQuery = QUERIES[currentQueryIndex];
@@ -26,14 +118,14 @@ export default function Home() {
       if (!isDeleting) {
         if (displayedText.length < currentQuery.length) {
           setDisplayedText(currentQuery.slice(0, displayedText.length + 1));
-          setTypingSpeed(100);
+          setTypingSpeed(55);
         } else {
           setTimeout(() => setIsDeleting(true), 2000);
         }
       } else {
         if (displayedText.length > 0) {
           setDisplayedText(currentQuery.slice(0, displayedText.length - 1));
-          setTypingSpeed(50);
+          setTypingSpeed(25);
         } else {
           setIsDeleting(false);
           setCurrentQueryIndex((prev) => (prev + 1) % QUERIES.length);
@@ -46,12 +138,12 @@ export default function Home() {
   }, [displayedText, isDeleting, currentQueryIndex, typingSpeed]);
 
   return (
-    <div className="bg-[#fbf7ef]">
+    <div className="bg-orange-50">
       <FloatingNavbar />
 
-      <section className="min-h-screen relative overflow-hidden flex items-center justify-center px-4 pt-44 pb-32">
+      <section className="min-h-screen relative overflow-hidden flex items-center justify-center px-4 pt-28 pb-24">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[#fbf7ef]" />
+          <div className="absolute inset-0 bg-orange-50" />
           <LightRays
             raysOrigin="top-center"
             raysColor="#EE5D25"
@@ -63,42 +155,102 @@ export default function Home() {
             noiseAmount={0.1}
             distortion={0.05}
             saturation={1}
-            className="opacity-30"
+            className="opacity-35"
           />
         </div>
 
-        <div className="max-w-5xl w-full text-center space-y-8 relative z-10">
-          <div className="space-y-4 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700">
-            <h2 className="text-gray-600 text-lg md:text-xl font-medium tracking-wide">
-              The #1 Marketing Platform for Shopify
+        <div className="max-w-6xl w-full text-center space-y-8 relative z-10">
+          <div className="space-y-5 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700">
+            <div className="flex items-center justify-center">
+              <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/60 px-3 py-1 text-xs font-medium text-foreground/80 backdrop-blur">
+                <span className="rounded-full bg-orange-500 px-2 py-0.5 text-[10px] font-semibold text-white">
+                  New
+                </span>
+                <span>Orkestrate Intelligence is live</span>
+                <span className="text-foreground/50">→</span>
+              </div>
+            </div>
+
+            <h2 className="text-foreground/70 text-sm sm:text-base font-medium tracking-wide">
+              The Marketing Orchestration Platform
             </h2>
 
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-red-500 to-orange-600 leading-tight whitespace-nowrap pb-2 md:pb-3">
-              Marketing by chatting with AI
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-foreground leading-tight">
+              Marketing by <span className="text-orange-600">chatting</span>
             </h1>
 
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 font-medium mt-2 md:mt-4">
-              Orkestrate is a chat-first marketing orchestration platform that sits on top of your stack, finds revenue you’re leaking, and launches personalized journeys fast.
+            <p className="text-base sm:text-lg md:text-xl text-foreground/70 font-medium">
+              Unifies your data, channels, and agents in one interface.
+              <br />
+              Marketing made simple and better with Orkestrate intelligence.
             </p>
           </div>
 
-          <div className="mt-12 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-200">
-            <div className="relative max-w-4xl mx-auto">
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-400 via-amber-400 to-orange-500 rounded-full blur-sm opacity-75"></div>
-              <div className="relative bg-white rounded-full shadow-2xl overflow-hidden">
-                <div className="flex items-center">
-                  <div className="flex-1 flex items-center px-6 py-5 md:py-6">
-                    <Search className="w-5 h-5 md:w-6 md:h-6 text-gray-400 mr-3 flex-shrink-0" />
-                    <div className="flex-1 flex items-center overflow-hidden min-w-0">
-                      <span className="text-base md:text-lg text-gray-600 whitespace-nowrap overflow-hidden text-ellipsis">
-                        {displayedText}
-                      </span>
-                      <span className="inline-block w-0.5 h-5 md:h-6 bg-gray-600 animate-pulse ml-1 flex-shrink-0"></span>
-                    </div>
+          <div className="mt-10 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-200">
+            <div className="relative w-full max-w-[56rem] mx-auto">
+              <div className="relative w-full">
+                <div className="flex w-full flex-col items-center">
+                  <div className="relative size-full w-full">
+                    <form
+                      onSubmit={(e) => e.preventDefault()}
+                      className="group flex flex-col gap-2 p-3 w-full rounded-[28px] border border-white/10 bg-neutral-900 text-base shadow-xl transition-all duration-150 ease-in-out focus-within:border-white/20 hover:border-white/15 focus-within:hover:border-white/20"
+                    >
+                      <div className="relative flex flex-1 items-center px-1">
+                        <textarea
+                          className="flex w-full resize-none border-none bg-transparent px-2 py-2 text-[16px] leading-snug text-white/80 placeholder:text-white/50 focus-visible:outline-none md:text-base max-h-[max(35svh,5rem)]"
+                          value={displayedText}
+                          placeholder="Ask Orkestrate to create a prototype..."
+                          readOnly
+                          style={{ height: '80px' }}
+                        />
+                      </div>
+
+                      <div className="flex gap-1 flex-wrap items-center">
+                        <button
+                          type="button"
+                          aria-label="Add"
+                          className="inline-flex items-center justify-center border border-white/10 bg-neutral-900 hover:bg-white/5 hover:border-white/15 gap-1.5 h-10 w-10 rounded-full p-0 text-white/60 hover:text-white md:h-8 md:w-8 transition-colors"
+                        >
+                          <Plus className="h-5 w-5" />
+                        </button>
+
+                        <button
+                          type="button"
+                          className="inline-flex items-center justify-center border border-white/10 bg-neutral-900 hover:bg-white/5 hover:border-white/15 py-2 h-10 gap-1.5 rounded-full px-3 text-white/60 hover:text-white md:h-8 md:w-fit transition-colors"
+                        >
+                          <Paperclip className="h-4 w-4" />
+                          <span className="hidden md:flex">Attach</span>
+                        </button>
+
+                        <div className="ml-auto flex items-center gap-1">
+                          <button
+                            type="button"
+                            aria-label="Chat"
+                            className="items-center justify-center whitespace-nowrap text-sm border border-white/10 bg-neutral-900 flex h-10 gap-1.5 rounded-full px-3 py-0 font-normal text-white/60 hover:text-white hover:border-white/15 hover:bg-white/5 md:h-8 md:font-medium transition-colors"
+                          >
+                            <MessageSquare className="h-4 w-4" />
+                            Chat
+                          </button>
+
+                          <button
+                            type="button"
+                            aria-label="Audio"
+                            className="inline-flex items-center justify-center border border-white/10 bg-neutral-900 hover:bg-white/5 hover:border-white/15 h-10 w-10 rounded-full p-0 text-white/60 hover:text-white md:h-8 md:w-8 transition-colors"
+                          >
+                            <AudioLines className="h-5 w-5" />
+                          </button>
+
+                          <button
+                            type="submit"
+                            aria-label="Send"
+                            className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-900 hover:bg-white/90 transition-colors md:h-8 md:w-8 motion-safe:animate-pulse"
+                          >
+                            <ArrowUp className="h-5 w-5" />
+                          </button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
-                  <button className="bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 text-white font-semibold px-6 md:px-8 py-5 md:py-6 rounded-r-full transition-all duration-300 flex-shrink-0 text-sm md:text-base whitespace-nowrap">
-                    Connect for FREE!
-                  </button>
                 </div>
               </div>
             </div>
@@ -106,224 +258,68 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative px-4 py-20 md:py-24 lg:py-28 bg-white border-t border-gray-100">
+      <section className="relative px-4 py-20 md:py-24 lg:py-28 border-t border-gray-100 bg-white/70 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto">
           <div className="motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
-              Intelligence that
+              Intelligence to
               <br />
-              Drives revenue 24/27
+              Drive your revenue 24/7
             </h3>
 
             <p className="mt-4 max-w-3xl text-base sm:text-lg text-gray-600 leading-relaxed">
               Orkestrate reads your orders, site behaviour and campaign data to surface
               where you are leaking revenue and where you can safely push harder.
-              Advanced personalization sees roughly 40% higher revenue from marketing.
             </p>
           </div>
 
           <div className="mt-10 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-150">
-            <div className="-mx-4 px-4 overflow-x-auto pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
-              <div className="flex gap-5 min-w-max snap-x snap-mandatory px-2">
-                {/* Card 1 */}
-                <div className="snap-start w-[340px] sm:w-[380px] flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:border-orange-200 hover:-translate-y-1 group">
-                  <div>
-                    <div className="flex items-start justify-between mb-5">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-50 text-[#DD3B2F] group-hover:bg-[#DD3B2F] group-hover:text-white transition-colors duration-300">
-                          <Users className="h-5 w-5" />
-                        </div>
-                        <div>
-                          <h4 className="text-base font-bold text-gray-900">High value lapsing</h4>
-                          <div className="flex items-center gap-1.5 mt-0.5">
-                            <span className="relative flex h-2 w-2">
-                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                              <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                            </span>
-                            <p className="text-xs font-medium text-gray-500">183 customers at risk</p>
+            <div className="-mx-4 px-4 overflow-hidden pb-8">
+              <div className="relative">
+                <div className="flex w-max gap-5 px-2 motion-safe:animate-marquee motion-reduce:animate-none">
+                  {[...insightCards, ...insightCards].map((card, index) => (
+                    <div
+                      key={`${card.title}-${index}`}
+                      className="w-[340px] sm:w-[380px] flex flex-col justify-between rounded-2xl border border-white/50 bg-white/55 backdrop-blur-md p-6 shadow-[0_2px_10px_rgba(0,0,0,0.06)] transition-all duration-300 hover:shadow-[0_16px_44px_rgba(0,0,0,0.12)] hover:border-orange-200 hover:-translate-y-1 group"
+                      aria-hidden={index >= insightCards.length}
+                    >
+                      <div>
+                        <div className="flex items-start justify-between mb-5">
+                          <div className="flex items-center gap-3">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/55 text-[#DD3B2F] border border-white/50 group-hover:bg-[#DD3B2F] group-hover:text-white transition-colors duration-300">
+                              <card.Icon className="h-5 w-5" />
+                            </div>
+                            <div>
+                              <h4 className="text-base font-bold text-gray-900">{card.title}</h4>
+                              <div className="flex items-center gap-1.5 mt-0.5">
+                                <span className="relative flex h-2 w-2">
+                                  {card.pingClassName ? (
+                                    <span
+                                      className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${card.pingClassName}`}
+                                    />
+                                  ) : null}
+                                  <span className={`relative inline-flex rounded-full h-2 w-2 ${card.dotClassName}`} />
+                                </span>
+                                <p className="text-xs font-medium text-gray-500">{card.metric}</p>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
 
-                    <div className="mb-5 rounded-xl bg-gray-50 p-4 border border-gray-100 group-hover:border-orange-100 transition-colors">
-                      <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Recoverable Revenue</p>
-                      <div className="flex items-baseline gap-1 mt-1">
-                        <p className="text-xl font-bold text-gray-900">9.4k</p>
-                        <span className="text-gray-400 text-sm">-</span>
-                        <p className="text-xl font-bold text-gray-900">14.2k</p>
-                      </div>
-                    </div>
-
-                    <p className="text-sm text-gray-600 leading-relaxed mb-6">
-                      Customers who used to buy often and have gone quiet for over their regular time. Perfect for a sharp, respectful winback.
-                    </p>
-                  </div>
-
-                  <button className="group/btn flex w-full items-center justify-center gap-2 rounded-xl bg-white border-2 border-gray-100 py-3 text-sm font-bold text-gray-900 transition-all hover:border-[#DD3B2F] hover:text-[#DD3B2F]">
-                    Run this winback
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                  </button>
-                </div>
-
-                {/* Card 2 */}
-                <div className="snap-start w-[340px] sm:w-[380px] flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:border-orange-200 hover:-translate-y-1 group">
-                  <div>
-                    <div className="flex items-start justify-between mb-5">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-50 text-[#DD3B2F] group-hover:bg-[#DD3B2F] group-hover:text-white transition-colors duration-300">
-                          <Zap className="h-5 w-5" />
+                        <div className="mb-5 rounded-xl bg-white/45 p-4 border border-white/45 group-hover:border-orange-100 transition-colors">
+                          <p className="text-lg font-bold text-gray-900">{card.moneyTop}</p>
+                          <p className="mt-0.5 text-sm font-medium text-gray-700">{card.moneyBottom}</p>
                         </div>
-                        <div>
-                          <h4 className="text-base font-bold text-gray-900">Ready to buy now</h4>
-                          <div className="flex items-center gap-1.5 mt-0.5">
-                            <span className="relative flex h-2 w-2">
-                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                            </span>
-                            <p className="text-xs font-medium text-gray-500">276 likely buyers</p>
-                          </div>
-                        </div>
+
+                        <p className="text-sm text-gray-600 leading-relaxed mb-6">{card.body}</p>
                       </div>
+
+                      <button className="group/btn flex w-full items-center justify-center gap-2 rounded-xl bg-white border-2 border-gray-100 py-3 text-sm font-bold text-gray-900 transition-all hover:border-[#DD3B2F] hover:text-[#DD3B2F]">
+                        {card.cta}
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                      </button>
                     </div>
-
-                    <div className="mb-5 rounded-xl bg-gray-50 p-4 border border-gray-100 group-hover:border-orange-100 transition-colors">
-                      <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Potential Revenue</p>
-                      <div className="flex items-baseline gap-1 mt-1">
-                        <p className="text-xl font-bold text-gray-900">8.1k</p>
-                        <span className="text-gray-400 text-sm">-</span>
-                        <p className="text-xl font-bold text-gray-900">11.7k</p>
-                      </div>
-                    </div>
-
-                    <p className="text-sm text-gray-600 leading-relaxed mb-6">
-                      People who browsed in a very similar pattern to those who bought but had strange cut offs. Ideal for a focused SKU lead nudge.
-                    </p>
-                  </div>
-
-                  <button className="group/btn flex w-full items-center justify-center gap-2 rounded-xl bg-white border-2 border-gray-100 py-3 text-sm font-bold text-gray-900 transition-all hover:border-[#DD3B2F] hover:text-[#DD3B2F]">
-                    Run this nudge
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                  </button>
-                </div>
-
-                {/* Card 3 */}
-                <div className="snap-start w-[340px] sm:w-[380px] flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:border-orange-200 hover:-translate-y-1 group">
-                  <div>
-                    <div className="flex items-start justify-between mb-5">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-50 text-[#DD3B2F] group-hover:bg-[#DD3B2F] group-hover:text-white transition-colors duration-300">
-                          <Eye className="h-5 w-5" />
-                        </div>
-                        <div>
-                          <h4 className="text-base font-bold text-gray-900">Overlooked buyers</h4>
-                          <div className="flex items-center gap-1.5 mt-0.5">
-                            <span className="relative flex h-2 w-2">
-                              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                            </span>
-                            <p className="text-xs font-medium text-gray-500">7,000 Likely buyers</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="mb-5 rounded-xl bg-gray-50 p-4 border border-gray-100 group-hover:border-orange-100 transition-colors">
-                      <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Potential Revenue</p>
-                      <div className="flex items-baseline gap-1 mt-1">
-                        <p className="text-xl font-bold text-gray-900">55.5k</p>
-                        <span className="text-gray-400 text-sm">-</span>
-                        <p className="text-xl font-bold text-gray-900">90.8k</p>
-                      </div>
-                    </div>
-
-                    <p className="text-sm text-gray-600 leading-relaxed mb-6">
-                      Overlooked customers that aren’t in your chosen segment but have several attributes that relates to the overall campaign.
-                    </p>
-                  </div>
-
-                  <button className="group/btn flex w-full items-center justify-center gap-2 rounded-xl bg-white border-2 border-gray-100 py-3 text-sm font-bold text-gray-900 transition-all hover:border-[#DD3B2F] hover:text-[#DD3B2F]">
-                    Run this segment
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                  </button>
-                </div>
-
-                {/* Card 4 */}
-                <div className="snap-start w-[340px] sm:w-[380px] flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:border-orange-200 hover:-translate-y-1 group">
-                  <div>
-                    <div className="flex items-start justify-between mb-5">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-50 text-[#DD3B2F] group-hover:bg-[#DD3B2F] group-hover:text-white transition-colors duration-300">
-                          <BellOff className="h-5 w-5" />
-                        </div>
-                        <div>
-                          <h4 className="text-base font-bold text-gray-900">Over-messaged VIPs</h4>
-                          <div className="flex items-center gap-1.5 mt-0.5">
-                            <span className="relative flex h-2 w-2">
-                              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-                            </span>
-                            <p className="text-xs font-medium text-gray-500">94 VIPs on the edge</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="mb-5 rounded-xl bg-gray-50 p-4 border border-gray-100 group-hover:border-orange-100 transition-colors">
-                      <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Margin Protection</p>
-                      <div className="flex items-baseline gap-1 mt-1">
-                        <p className="text-xl font-bold text-gray-900">3.2k</p>
-                        <span className="text-sm text-gray-500 font-medium ml-1">monthly</span>
-                      </div>
-                    </div>
-
-                    <p className="text-sm text-gray-600 leading-relaxed mb-6">
-                      Top spenders who have seen too many emails and ads this week. Orkestrate cools them off so they do not unsubscribe.
-                    </p>
-                  </div>
-
-                  <button className="group/btn flex w-full items-center justify-center gap-2 rounded-xl bg-white border-2 border-gray-100 py-3 text-sm font-bold text-gray-900 transition-all hover:border-[#DD3B2F] hover:text-[#DD3B2F]">
-                    Apply this guardrail
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                  </button>
-                </div>
-
-                {/* Card 5 */}
-                <div className="snap-start w-[340px] sm:w-[380px] flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:border-orange-200 hover:-translate-y-1 group">
-                  <div>
-                    <div className="flex items-start justify-between mb-5">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-50 text-[#DD3B2F] group-hover:bg-[#DD3B2F] group-hover:text-white transition-colors duration-300">
-                          <ShoppingBag className="h-5 w-5" />
-                        </div>
-                        <div>
-                          <h4 className="text-base font-bold text-gray-900">Next best product</h4>
-                          <div className="flex items-center gap-1.5 mt-0.5">
-                            <span className="relative flex h-2 w-2">
-                              <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
-                            </span>
-                            <p className="text-xs font-medium text-gray-500">211 candidates</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="mb-5 rounded-xl bg-gray-50 p-4 border border-gray-100 group-hover:border-orange-100 transition-colors">
-                      <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Incremental Revenue</p>
-                      <div className="flex items-baseline gap-1 mt-1">
-                        <p className="text-xl font-bold text-gray-900">6.5k</p>
-                        <span className="text-gray-400 text-sm">-</span>
-                        <p className="text-xl font-bold text-gray-900">9.8k</p>
-                      </div>
-                    </div>
-
-                    <p className="text-sm text-gray-600 leading-relaxed mb-6">
-                      Customers who bought Product A and showed interest in Product B but never finished. Clean, relevant cross sell.
-                    </p>
-                  </div>
-
-                  <button className="group/btn flex w-full items-center justify-center gap-2 rounded-xl bg-white border-2 border-gray-100 py-3 text-sm font-bold text-gray-900 transition-all hover:border-[#DD3B2F] hover:text-[#DD3B2F]">
-                    Launch this cross sell
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                  </button>
+                  ))}
                 </div>
               </div>
             </div>
@@ -483,232 +479,132 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative px-4 py-20 md:py-24 lg:py-28 bg-white border-t border-gray-100">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700">
-            <div className="inline-flex items-center gap-2 rounded-full border bg-gray-100 px-4 py-2">
-              <span className="text-xs font-semibold tracking-wide text-gray-700">Category</span>
-              <span className="w-px h-4 bg-gray-200" />
-              <span className="relative h-[1.1em] overflow-hidden">
-                <span className="block animate-category-rotate">
-                  <span className="block text-xs font-semibold text-[#DD3B2F]">Fashion &amp; apparel</span>
-                  <span className="block text-xs font-semibold text-[#DD3B2F]">Beauty &amp; skincare</span>
-                  <span className="block text-xs font-semibold text-[#DD3B2F]">Home &amp; lifestyle</span>
+      <section className="relative px-4 py-24 md:py-32 bg-white border-t border-gray-100 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700">
+            <div className="max-w-2xl">
+              <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900">
+                <span className="relative inline-block h-[1.15em] overflow-hidden align-baseline leading-none">
+                  <span className="block animate-category-rotate leading-none">
+                    <span className="block h-[1.15em] leading-none bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">Fashion &amp; apparel</span>
+                    <span className="block h-[1.15em] leading-none bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">Beauty &amp; skincare</span>
+                    <span className="block h-[1.15em] leading-none bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">Home &amp; lifestyle</span>
+                    <span className="block h-[1.15em] leading-none bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">Fashion &amp; apparel</span>
+                  </span>
                 </span>
-              </span>
+              </h3>
             </div>
-
-            <h3 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-gray-900">
-              Category Based AI Models
-            </h3>
-            <p className="mt-3 text-base sm:text-lg text-gray-700">
-              Already knows your industries Ins &amp; Outs!
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-4 sm:gap-6 lg:grid-cols-3 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-150">
-            <div className="rounded-2xl border bg-white shadow-sm p-6">
-              <p className="text-sm font-semibold text-gray-900">Fashion &amp; apparel</p>
-              <p className="mt-3 text-sm sm:text-base text-gray-700 leading-relaxed">
-                Spots fit, size and seasonality patterns so you send the right looks to the right closets.
+            <div className="max-w-md md:text-right">
+              <p className="text-lg text-gray-500 font-medium">
+                Category Based AI Models that know your industry's Ins &amp; Outs
               </p>
-              <p className="mt-3 text-sm text-gray-500 leading-relaxed">
-                “Your denim VIPs respond best to SMS drops on weekends.”
-              </p>
-            </div>
-
-            <div className="rounded-2xl border bg-white shadow-sm p-6">
-              <p className="text-sm font-semibold text-gray-900">Beauty &amp; skincare</p>
-              <p className="mt-3 text-sm sm:text-base text-gray-700 leading-relaxed">
-                Understands replenishment cycles and routines, not just one-off orders.
-              </p>
-              <p className="mt-3 text-sm text-gray-500 leading-relaxed">
-                “These 1,104 customers are due for a refill within 7 days.”
-              </p>
-            </div>
-
-            <div className="rounded-2xl border bg-white shadow-sm p-6">
-              <p className="text-sm font-semibold text-gray-900">Home &amp; lifestyle</p>
-              <p className="mt-3 text-sm sm:text-base text-gray-700 leading-relaxed">
-                Reads browsing depth and consideration windows for higher ticket items.
-              </p>
-              <p className="mt-3 text-sm text-gray-500 leading-relaxed">
-                “Visitors who viewed sofas 3+ times are 4x more likely to convert with a reminder.”
-              </p>
+              <a href="#" className="inline-flex items-center gap-2 text-orange-600 font-semibold mt-2 hover:gap-3 transition-all">
+                View all 40+ categories <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
           </div>
 
-          <div className="mt-12 text-center motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-250">
-            <p className="text-base sm:text-lg font-semibold text-gray-900">
-              Choose from over 40 Unique Category Models that suit your brand!
+          <div className="grid gap-8 lg:gap-10 lg:grid-cols-3 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-150">
+            {/* Fashion Card */}
+            <div className="group relative flex flex-col justify-between rounded-[2.5rem] border border-gray-100 bg-white p-10 shadow-[0_2px_20px_rgba(0,0,0,0.02)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(221,59,47,0.1)]">
+              <div className="relative z-10">
+                <div className="mb-8 inline-flex p-4 rounded-2xl bg-orange-50/30 group-hover:bg-orange-50 transition-colors duration-500">
+                  <Image src="/fashion.png" alt="Fashion" width={64} height={64} className="object-contain drop-shadow-sm" />
+                </div>
+                <h4 className="mb-4 text-2xl font-bold text-gray-900">Fashion &amp; apparel</h4>
+                <p className="text-lg leading-relaxed text-gray-500 mb-12">
+                  Spots fit, size and seasonality patterns so you send the right looks to the right closets.
+                </p>
+              </div>
+              
+              {/* Floating Glass Insight */}
+              <div className="relative mt-auto">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-100 to-orange-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur"></div>
+                <div className="relative rounded-2xl bg-white border border-gray-100 p-5 shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:border-orange-100/50">
+                  <div className="mb-3 flex items-center gap-2">
+                    <div className="p-1.5 rounded-full bg-orange-100/50 text-orange-600">
+                      <Sparkles className="h-3.5 w-3.5" />
+                    </div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-orange-600/90">Model Insight</span>
+                  </div>
+                  <p className="text-base font-medium text-gray-900 leading-snug">
+                    “Your denim VIPs respond best to SMS drops on weekends.”
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Beauty Card */}
+            <div className="group relative flex flex-col justify-between rounded-[2.5rem] border border-gray-100 bg-white p-10 shadow-[0_2px_20px_rgba(0,0,0,0.02)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(221,59,47,0.1)]">
+              <div className="relative z-10">
+                <div className="mb-8 inline-flex p-4 rounded-2xl bg-orange-50/30 group-hover:bg-orange-50 transition-colors duration-500">
+                  <Image src="/skincare.png" alt="Beauty" width={64} height={64} className="object-contain drop-shadow-sm" />
+                </div>
+                <h4 className="mb-4 text-2xl font-bold text-gray-900">Beauty &amp; skincare</h4>
+                <p className="text-lg leading-relaxed text-gray-500 mb-12">
+                  Understands replenishment cycles and routines, not just one-off orders.
+                </p>
+              </div>
+
+              {/* Floating Glass Insight */}
+              <div className="relative mt-auto">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-100 to-orange-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur"></div>
+                <div className="relative rounded-2xl bg-white border border-gray-100 p-5 shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:border-orange-100/50">
+                  <div className="mb-3 flex items-center gap-2">
+                    <div className="p-1.5 rounded-full bg-orange-100/50 text-orange-600">
+                      <Sparkles className="h-3.5 w-3.5" />
+                    </div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-orange-600/90">Model Insight</span>
+                  </div>
+                  <p className="text-base font-medium text-gray-900 leading-snug">
+                    “These 1,104 customers are due for a refill within 7 days.”
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Home Card */}
+            <div className="group relative flex flex-col justify-between rounded-[2.5rem] border border-gray-100 bg-white p-10 shadow-[0_2px_20px_rgba(0,0,0,0.02)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(221,59,47,0.1)]">
+              <div className="relative z-10">
+                <div className="mb-8 inline-flex p-4 rounded-2xl bg-orange-50/30 group-hover:bg-orange-50 transition-colors duration-500">
+                  <Image src="/home.png" alt="Home" width={64} height={64} className="object-contain drop-shadow-sm" />
+                </div>
+                <h4 className="mb-4 text-2xl font-bold text-gray-900">Home &amp; lifestyle</h4>
+                <p className="text-lg leading-relaxed text-gray-500 mb-12">
+                  Reads browsing depth and consideration windows for higher ticket items.
+                </p>
+              </div>
+
+              {/* Floating Glass Insight */}
+              <div className="relative mt-auto">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-100 to-orange-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur"></div>
+                <div className="relative rounded-2xl bg-white border border-gray-100 p-5 shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:border-orange-100/50">
+                  <div className="mb-3 flex items-center gap-2">
+                    <div className="p-1.5 rounded-full bg-orange-100/50 text-orange-600">
+                      <Sparkles className="h-3.5 w-3.5" />
+                    </div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-orange-600/90">Model Insight</span>
+                  </div>
+                  <p className="text-base font-medium text-gray-900 leading-snug">
+                    "Visitors who viewed sofas 3+ times are 4x more likely to convert."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-20 text-center border-t border-gray-100 pt-12 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 motion-safe:delay-250">
+            <p className="text-xl font-semibold text-gray-900">
+              Choose from over 40 Unique Category Models that suit your brand
             </p>
-            <p className="mt-4 max-w-3xl mx-auto text-sm sm:text-base text-gray-700 leading-relaxed">
+            <p className="mt-3 text-gray-500">
               You would never hire a marketer from a random niche. Orkestrate is set up for your category.
             </p>
-            <p className="mt-6 text-base sm:text-lg font-semibold text-[#DD3B2F]">
-              stop using basic models and start orchestrating intelligence
-            </p>
           </div>
         </div>
       </section>
 
-      <section className="relative px-4 py-20 md:py-24 lg:py-28 bg-slate-50/50">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700 mb-20">
-            <div className="inline-flex items-center gap-2 rounded-full border border-orange-100 bg-orange-50/50 px-4 py-1.5 mb-6">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
-              </span>
-              <span className="text-xs font-mono font-medium text-orange-700 uppercase tracking-wider">System Workflow</span>
-            </div>
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
-              How Orkestrate works
-            </h3>
-            <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-gray-600">
-              Turn a small team into a high output marketing engine in 5 automated steps.
-            </p>
-          </div>
-
-          <div className="relative">
-            {/* Connecting Line */}
-            <div className="absolute left-8 top-8 bottom-8 w-px bg-gradient-to-b from-orange-200 via-gray-200 to-transparent hidden sm:block"></div>
-
-            <div className="space-y-12">
-              {/* Step 1 */}
-              <div className="relative flex gap-6 sm:gap-10 group">
-                <div className="hidden sm:flex flex-none w-16 h-16 rounded-2xl bg-white border border-gray-200 shadow-[0_2px_8px_rgba(0,0,0,0.04)] items-center justify-center z-10 group-hover:border-orange-200 group-hover:shadow-[0_4px_12px_rgba(221,59,47,0.1)] group-hover:scale-110 transition-all duration-300">
-                   <Plug className="w-7 h-7 text-gray-400 group-hover:text-[#DD3B2F] transition-colors" />
-                </div>
-                <div className="flex-1 rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm hover:shadow-md transition-all duration-300 group-hover:border-orange-100 relative overflow-hidden">
-                   <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                      <Plug className="w-24 h-24 text-[#DD3B2F] -mr-8 -mt-8 transform rotate-12" />
-                   </div>
-                   <div className="relative z-10">
-                     <div className="flex items-center justify-between mb-4">
-                        <h4 className="text-xl font-bold text-gray-900">Connect your store and campaigns</h4>
-                        <span className="text-xs font-mono font-bold text-gray-300 group-hover:text-orange-400 transition-colors bg-gray-50 group-hover:bg-orange-50 px-2 py-1 rounded">STEP_01</span>
-                     </div>
-                     <p className="text-base text-gray-700 leading-relaxed font-medium">
-                        Plug in Shopify plus your existing tools like Klaviyo, Attentive or Braze.
-                     </p>
-                     <p className="mt-3 text-sm text-gray-500 leading-relaxed">
-                        Orkestrate ingests orders, browsing, campaigns and basic catalog data so it can see what you are already doing and where revenue is leaking.
-                     </p>
-                   </div>
-                </div>
-              </div>
-
-              {/* Step 2 */}
-              <div className="relative flex gap-6 sm:gap-10 group">
-                <div className="hidden sm:flex flex-none w-16 h-16 rounded-2xl bg-white border border-gray-200 shadow-[0_2px_8px_rgba(0,0,0,0.04)] items-center justify-center z-10 group-hover:border-orange-200 group-hover:shadow-[0_4px_12px_rgba(221,59,47,0.1)] group-hover:scale-110 transition-all duration-300">
-                   <Layers className="w-7 h-7 text-gray-400 group-hover:text-[#DD3B2F] transition-colors" />
-                </div>
-                <div className="flex-1 rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm hover:shadow-md transition-all duration-300 group-hover:border-orange-100 relative overflow-hidden">
-                   <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                      <Layers className="w-24 h-24 text-[#DD3B2F] -mr-8 -mt-8 transform rotate-12" />
-                   </div>
-                   <div className="relative z-10">
-                     <div className="flex items-center justify-between mb-4">
-                        <h4 className="text-xl font-bold text-gray-900">Choose your category profile</h4>
-                        <span className="text-xs font-mono font-bold text-gray-300 group-hover:text-orange-400 transition-colors bg-gray-50 group-hover:bg-orange-50 px-2 py-1 rounded">STEP_02</span>
-                     </div>
-                     <p className="text-base text-gray-700 leading-relaxed font-medium">
-                        Pick the category that matches your brand, for example beauty, fashion, home or food.
-                     </p>
-                     <p className="mt-3 text-sm text-gray-500 leading-relaxed">
-                        Category models bring instant pattern recognition for your niche so you are not waiting months for the system to learn from scratch.
-                     </p>
-                   </div>
-                </div>
-              </div>
-
-              {/* Step 3 */}
-              <div className="relative flex gap-6 sm:gap-10 group">
-                <div className="hidden sm:flex flex-none w-16 h-16 rounded-2xl bg-white border border-gray-200 shadow-[0_2px_8px_rgba(0,0,0,0.04)] items-center justify-center z-10 group-hover:border-orange-200 group-hover:shadow-[0_4px_12px_rgba(221,59,47,0.1)] group-hover:scale-110 transition-all duration-300">
-                   <MessageSquare className="w-7 h-7 text-gray-400 group-hover:text-[#DD3B2F] transition-colors" />
-                </div>
-                <div className="flex-1 rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm hover:shadow-md transition-all duration-300 group-hover:border-orange-100 relative overflow-hidden">
-                   <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                      <MessageSquare className="w-24 h-24 text-[#DD3B2F] -mr-8 -mt-8 transform rotate-12" />
-                   </div>
-                   <div className="relative z-10">
-                     <div className="flex items-center justify-between mb-4">
-                        <h4 className="text-xl font-bold text-gray-900">Start chatting with your Orkestrator</h4>
-                        <span className="text-xs font-mono font-bold text-gray-300 group-hover:text-orange-400 transition-colors bg-gray-50 group-hover:bg-orange-50 px-2 py-1 rounded">STEP_03</span>
-                     </div>
-                     <p className="text-base text-gray-700 leading-relaxed font-medium mb-4">
-                        Describe your goals in simple language.
-                     </p>
-                     <div className="grid gap-3 mb-4">
-                        <div className="flex items-center gap-3 text-sm text-gray-600 bg-gray-50 p-3 rounded-lg border border-gray-100">
-                           <div className="w-1.5 h-1.5 rounded-full bg-orange-400"></div>
-                           “Recover more lapsing VIPs.”
-                        </div>
-                        <div className="flex items-center gap-3 text-sm text-gray-600 bg-gray-50 p-3 rounded-lg border border-gray-100">
-                           <div className="w-1.5 h-1.5 rounded-full bg-orange-400"></div>
-                           “Launch a new product to high intent browsers.”
-                        </div>
-                     </div>
-                     <p className="text-sm text-gray-500 leading-relaxed">
-                        Orkestrate turns that into cohorts, journeys and experiments across your channels.
-                     </p>
-                   </div>
-                </div>
-              </div>
-
-              {/* Step 4 */}
-              <div className="relative flex gap-6 sm:gap-10 group">
-                <div className="hidden sm:flex flex-none w-16 h-16 rounded-2xl bg-white border border-gray-200 shadow-[0_2px_8px_rgba(0,0,0,0.04)] items-center justify-center z-10 group-hover:border-orange-200 group-hover:shadow-[0_4px_12px_rgba(221,59,47,0.1)] group-hover:scale-110 transition-all duration-300">
-                   <CheckCircle2 className="w-7 h-7 text-gray-400 group-hover:text-[#DD3B2F] transition-colors" />
-                </div>
-                <div className="flex-1 rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm hover:shadow-md transition-all duration-300 group-hover:border-orange-100 relative overflow-hidden">
-                   <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                      <CheckCircle2 className="w-24 h-24 text-[#DD3B2F] -mr-8 -mt-8 transform rotate-12" />
-                   </div>
-                   <div className="relative z-10">
-                     <div className="flex items-center justify-between mb-4">
-                        <h4 className="text-xl font-bold text-gray-900">Approve plays and launch</h4>
-                        <span className="text-xs font-mono font-bold text-gray-300 group-hover:text-orange-400 transition-colors bg-gray-50 group-hover:bg-orange-50 px-2 py-1 rounded">STEP_04</span>
-                     </div>
-                     <p className="text-base text-gray-700 leading-relaxed font-medium">
-                        Review the proposed plays in plain English. Tweak guardrails, budget and tone where needed.
-                     </p>
-                     <p className="mt-3 text-sm text-gray-500 leading-relaxed">
-                        Approve and Orkestrate’s agents create and schedule the actual campaigns in your connected tools.
-                     </p>
-                   </div>
-                </div>
-              </div>
-
-              {/* Step 5 */}
-              <div className="relative flex gap-6 sm:gap-10 group">
-                <div className="hidden sm:flex flex-none w-16 h-16 rounded-2xl bg-white border border-gray-200 shadow-[0_2px_8px_rgba(0,0,0,0.04)] items-center justify-center z-10 group-hover:border-orange-200 group-hover:shadow-[0_4px_12px_rgba(221,59,47,0.1)] group-hover:scale-110 transition-all duration-300">
-                   <TrendingUp className="w-7 h-7 text-gray-400 group-hover:text-[#DD3B2F] transition-colors" />
-                </div>
-                <div className="flex-1 rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm hover:shadow-md transition-all duration-300 group-hover:border-orange-100 relative overflow-hidden">
-                   <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                      <TrendingUp className="w-24 h-24 text-[#DD3B2F] -mr-8 -mt-8 transform rotate-12" />
-                   </div>
-                   <div className="relative z-10">
-                     <div className="flex items-center justify-between mb-4">
-                        <h4 className="text-xl font-bold text-gray-900">Learn, optimize and scale</h4>
-                        <span className="text-xs font-mono font-bold text-gray-300 group-hover:text-orange-400 transition-colors bg-gray-50 group-hover:bg-orange-50 px-2 py-1 rounded">STEP_05</span>
-                     </div>
-                     <p className="text-base text-gray-700 leading-relaxed font-medium">
-                        Every send, click and order feeds back into Orkestrate. Agents automatically promote what works.
-                     </p>
-                     <p className="mt-3 text-sm text-gray-500 leading-relaxed">
-                        Over time you run far more campaigns and experiments with the same team while keeping performance and customer experience improving week after week.
-                     </p>
-                   </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </section>
+      <HowItWorks />
 
       <section className="relative px-4 py-20 md:py-24 lg:py-28 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto">

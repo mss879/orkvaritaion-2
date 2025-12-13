@@ -79,10 +79,12 @@ const config: Config = {
           },
         },
         'category-rotate': {
-          '0%, 22%': { transform: 'translateY(0%)' },
-          '33%, 55%': { transform: 'translateY(-33.333%)' },
-          '66%, 88%': { transform: 'translateY(-66.666%)' },
-          '100%': { transform: 'translateY(0%)' },
+          '0%, 20%': { transform: 'translateY(0%)' },
+          '33%': { transform: 'translateY(-25%)' },
+          '33%, 53%': { transform: 'translateY(-25%)' },
+          '66%': { transform: 'translateY(-50%)' },
+          '66%, 86%': { transform: 'translateY(-50%)' },
+          '100%': { transform: 'translateY(-75%)' },
         },
         'stream-x': {
           '0%': { transform: 'translateX(-100%)' },
@@ -104,6 +106,10 @@ const config: Config = {
           '0%, 100%': { opacity: '1', boxShadow: '0 0 30px rgba(221,59,47,0.3)' },
           '50%': { opacity: '0.9', boxShadow: '0 0 50px rgba(221,59,47,0.6)' },
         },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -114,6 +120,7 @@ const config: Config = {
         'stream-y': 'stream-y 2s linear infinite',
         'stream-y-reverse': 'stream-y-reverse 2s linear infinite',
         'pulse-soft': 'pulse-soft 3s ease-in-out infinite',
+        marquee: 'marquee 45s linear infinite',
       },
     },
   },
