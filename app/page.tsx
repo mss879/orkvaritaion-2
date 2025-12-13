@@ -37,6 +37,7 @@ import {
 import LightRays from '@/components/LightRays';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import HowItWorks from '@/components/HowItWorks';
+import Footer from '@/components/Footer';
 
 type InsightCard = {
   title: string;
@@ -821,6 +822,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
