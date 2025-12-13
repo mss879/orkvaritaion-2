@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ComponentType } from 'react';
 import Image from 'next/image';
 import {
   ArrowRight,
@@ -37,6 +37,18 @@ import {
 import LightRays from '@/components/LightRays';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import HowItWorks from '@/components/HowItWorks';
+
+type InsightCard = {
+  title: string;
+  metric: string;
+  moneyTop: string;
+  moneyBottom: string;
+  body: string;
+  cta: string;
+  Icon: ComponentType<{ className?: string }>;
+  dotClassName: string;
+  pingClassName?: string;
+};
 
 const QUERIES = [
   'where am I are loosing revenue',
@@ -109,7 +121,7 @@ export default function Home() {
       Icon: ShoppingBag,
       dotClassName: 'bg-orange-500',
     },
-  ] as const;
+  ] satisfies ReadonlyArray<InsightCard>;
 
   useEffect(() => {
     const currentQuery = QUERIES[currentQueryIndex];
