@@ -362,13 +362,13 @@ export default function Home() {
             </ScrollAnimationWrapper>
 
             <ScrollAnimationWrapper>
-              <div className="mx-auto max-w-[1100px] w-full">
+              <div className="mx-auto max-w-[600px] w-full">
                 <Image
                   alt=""
                   src="/Advantage.jpeg"
                   width={1920}
                   height={1620}
-                  sizes="(min-width: 1024px) 1100px, 100vw"
+                  sizes="(min-width: 1024px) 600px, 100vw"
                   className="w-full rounded-2xl"
                   style={{ height: 'auto' }}
                 />
