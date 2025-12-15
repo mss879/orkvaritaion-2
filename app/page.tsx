@@ -343,12 +343,12 @@ export default function Home() {
 
       <section
         className="relative px-4 py-20 md:py-24 lg:py-28"
-        data-framer-name="Aampe Advantage"
-        id="aampe-advantage"
+        data-framer-name="Orkestrate Advantage"
+        id="orkestrate-advantage"
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700">
-            <p className="text-sm font-medium tracking-wide text-gray-700">Aampe Advantage</p>
+            <p className="text-sm font-medium tracking-wide text-gray-700">Orkestrate Advantage</p>
             <h2 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-gray-900 leading-tight max-w-4xl mx-auto">
               <span className="block">Continuous Intelligence for</span>
               <span className="block">Personalization at Scale</span>
@@ -398,7 +398,7 @@ export default function Home() {
               <div className="mx-auto max-w-[1100px] w-full">
                 <Image
                   alt=""
-                  src="https://framerusercontent.com/images/d90MNP2pZ1fMl0QoqDcHf98C0iU.webp?width=1920&height=1620"
+                  src="/Advantage.jpeg"
                   width={1920}
                   height={1620}
                   sizes="(min-width: 1024px) 1100px, 100vw"
