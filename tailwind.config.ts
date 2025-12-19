@@ -110,6 +110,9 @@ const config: Config = {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
         },
+        'spin-reverse': {
+          to: { transform: 'rotate(-360deg)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -121,6 +124,8 @@ const config: Config = {
         'stream-y-reverse': 'stream-y-reverse 2s linear infinite',
         'pulse-soft': 'pulse-soft 3s ease-in-out infinite',
         marquee: 'marquee 30s linear infinite',
+        'spin-slow': 'spin 3s linear infinite',
+        'spin-reverse-slow': 'spin-reverse 3s linear infinite',
       },
     },
   },

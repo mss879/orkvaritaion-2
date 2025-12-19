@@ -1,4 +1,5 @@
 import type { ComponentType } from 'react';
+import Integrations from '@/components/Integrations';
 import Image from 'next/image';
 import {
   ArrowRight,
@@ -57,6 +58,8 @@ const QUERIES = [
   'Ask Orkestrate to create a Christmas wish-list campaign',
   'Ask Orkestrate to pause the Christmas campaign and run a 20 A/B test variants',
 ];
+
+import AdvantageAnimation from '@/components/AdvantageAnimation';
 
 export default function Home() {
   return (
@@ -223,15 +226,7 @@ export default function Home() {
 
             <ScrollAnimationWrapper>
               <div className="mx-auto max-w-[600px] w-full">
-                <Image
-                  alt=""
-                  src="/Advantage.jpeg"
-                  width={1920}
-                  height={1620}
-                  sizes="(min-width: 1024px) 600px, 100vw"
-                  className="w-full rounded-2xl"
-                  style={{ height: 'auto' }}
-                />
+                <AdvantageAnimation />
               </div>
             </ScrollAnimationWrapper>
 
@@ -453,82 +448,7 @@ export default function Home() {
 
       <HowItWorks />
 
-      <section
-        data-cy="csol-section"
-        className="csol-section wf-rotating-svg -white -padding-top-md -padding-bottom-xs"
-        data-cl-theme="light"
-        data-cl-background="background-01"
-      >
-        <ScrollAnimationWrapper className="csol-section-wrapper">
-          <div className="cl-card wf-rotating-svg-container -white -container-01 -border">
-            <div className="wf-rotating-svg-container-heading">
-              <h3 className="wf-rotating-svg-heading cl-h3">Works with the tools you already use. 2,000+ integrations.</h3>
-              <a
-                className="cl-textLink -medium -white wf-rotating-svg-cta homepage-apps"
-                href="https://ecosystem.hubspot.com/marketplace/apps?hubs_content-cta=homepage-apps&hubs_content=www.hubspot.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                See all app integrations
-              </a>
-            </div>
-
-            <div className="wf-rotating-svg-container-icons" aria-hidden="true">
-              <div className="wf-logo-marquee">
-                <div className="wf-logo-row wf-logo-row--top">
-                  <div className="wf-logo-track">
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/slack-icon-2.svg" alt="Slack" loading="lazy" />
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/zapier-icon-2.svg" alt="Zapier" loading="lazy" />
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/google-ads-icon-2.svg" alt="Google Ads" loading="lazy" />
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/shopify-icon-3.svg" alt="Shopify" loading="lazy" />
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/mailchimp-icon-3.svg" alt="Mailchimp" loading="lazy" />
-                    <img className="wf-logo" src="https://cdn.simpleicons.org/meta/0866FF" alt="Meta" loading="lazy" />
-                    <img className="wf-logo" src="/integrations/firebase.svg" alt="Firebase" loading="lazy" />
-                    <img className="wf-logo" src="https://cdn.simpleicons.org/airtable/18BFFF" alt="Airtable" loading="lazy" />
-                    <img className="wf-logo" src="/integrations/aws.svg" alt="AWS" loading="lazy" />
-                    <img className="wf-logo wf-logo--wide" src="/integrations/extra.svg" alt="Integration" loading="lazy" />
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/slack-icon-2.svg" alt="Slack" loading="lazy" />
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/zapier-icon-2.svg" alt="Zapier" loading="lazy" />
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/google-ads-icon-2.svg" alt="Google Ads" loading="lazy" />
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/shopify-icon-3.svg" alt="Shopify" loading="lazy" />
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/mailchimp-icon-3.svg" alt="Mailchimp" loading="lazy" />
-                    <img className="wf-logo" src="https://cdn.simpleicons.org/meta/0866FF" alt="Meta" loading="lazy" />
-                    <img className="wf-logo" src="/integrations/firebase.svg" alt="Firebase" loading="lazy" />
-                    <img className="wf-logo" src="https://cdn.simpleicons.org/airtable/18BFFF" alt="Airtable" loading="lazy" />
-                    <img className="wf-logo" src="/integrations/aws.svg" alt="AWS" loading="lazy" />
-                    <img className="wf-logo wf-logo--wide" src="/integrations/extra.svg" alt="Integration" loading="lazy" />
-                  </div>
-                </div>
-
-                <div className="wf-logo-row wf-logo-row--bottom">
-                  <div className="wf-logo-track wf-logo-track--reverse wf-logo-track--offset">
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/shopify-icon-3.svg" alt="Shopify" loading="lazy" />
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/google-ads-icon-2.svg" alt="Google Ads" loading="lazy" />
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/zapier-icon-2.svg" alt="Zapier" loading="lazy" />
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/slack-icon-2.svg" alt="Slack" loading="lazy" />
-                    <img className="wf-logo" src="https://cdn.simpleicons.org/meta/0866FF" alt="Meta" loading="lazy" />
-                    <img className="wf-logo" src="/integrations/firebase.svg" alt="Firebase" loading="lazy" />
-                    <img className="wf-logo" src="https://cdn.simpleicons.org/airtable/18BFFF" alt="Airtable" loading="lazy" />
-                    <img className="wf-logo" src="/integrations/aws.svg" alt="AWS" loading="lazy" />
-                    <img className="wf-logo wf-logo--wide" src="/integrations/extra.svg" alt="Integration" loading="lazy" />
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/mailchimp-icon-3.svg" alt="Mailchimp" loading="lazy" />
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/shopify-icon-3.svg" alt="Shopify" loading="lazy" />
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/google-ads-icon-2.svg" alt="Google Ads" loading="lazy" />
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/zapier-icon-2.svg" alt="Zapier" loading="lazy" />
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/slack-icon-2.svg" alt="Slack" loading="lazy" />
-                    <img className="wf-logo" src="https://cdn.simpleicons.org/meta/0866FF" alt="Meta" loading="lazy" />
-                    <img className="wf-logo" src="/integrations/firebase.svg" alt="Firebase" loading="lazy" />
-                    <img className="wf-logo" src="https://cdn.simpleicons.org/airtable/18BFFF" alt="Airtable" loading="lazy" />
-                    <img className="wf-logo" src="/integrations/aws.svg" alt="AWS" loading="lazy" />
-                    <img className="wf-logo wf-logo--wide" src="/integrations/extra.svg" alt="Integration" loading="lazy" />
-                    <img className="wf-logo" src="https://www.hubspot.com/hubfs/mailchimp-icon-3.svg" alt="Mailchimp" loading="lazy" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </ScrollAnimationWrapper>
-      </section>
+      <Integrations />
 
       {/* Footer */}
       <Footer />

@@ -2,6 +2,11 @@ import React from 'react';
 import Image from 'next/image';
 import { CheckCircle2, Plug, Layers, MessageSquare, TrendingUp } from 'lucide-react';
 import ScrollAnimationWrapper from './ScrollAnimationWrapper';
+import LearnOptimizeScaleAnimation from './LearnOptimizeScaleAnimation';
+import ChatOrkestratorAnimation from './ChatOrkestratorAnimation';
+import ChooseCategoryAnimation from './ChooseCategoryAnimation';
+import ConnectStoreAnimation from './ConnectStoreAnimation';
+import ApproveLaunchAnimation from './ApproveLaunchAnimation';
 
 const steps = [
   {
@@ -103,19 +108,35 @@ export default function HowItWorks() {
                   index % 2 === 1 ? 'md:mr-auto' : 'md:ml-auto'
                 }`}
               >
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent" />
-                <Image
-                  src={step.imageSrc}
-                  alt={step.imageAlt}
-                  width={1400}
-                  height={1100}
-                  className="h-auto w-full object-cover"
-                  sizes="(min-width: 1024px) 55vw, (min-width: 768px) 50vw, 100vw"
-                  priority={index === 0}
-                />
-                <span className="absolute bottom-3 right-3 rounded-full bg-orange-500/90 px-3 py-1 text-xs font-bold text-white shadow-[0_10px_25px_rgba(0,0,0,0.18)] border border-white/40 backdrop-blur-md">
-                  Step {index + 1}
-                </span>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent z-20" />
+                
+                {step.title === "Learn, optimize and scale" ? (
+                  <LearnOptimizeScaleAnimation />
+                ) : step.title === "Start chatting with your Orkestrator" ? (
+                  <ChatOrkestratorAnimation />
+                ) : step.title === "Choose your category profile" ? (
+                  <ChooseCategoryAnimation />
+                ) : step.title === "Connect your store and campaigns" ? (
+                  <ConnectStoreAnimation />
+                ) : step.title === "Approve plays and launch" ? (
+                  <ApproveLaunchAnimation />
+                ) : (
+                  <Image
+                    src={step.imageSrc}
+                    alt={step.imageAlt}
+                    width={1400}
+                    height={1100}
+                    className="h-auto w-full object-cover"
+                    sizes="(min-width: 1024px) 55vw, (min-width: 768px) 50vw, 100vw"
+                    priority={index === 0}
+                  />
+                )}
+
+                {step.title !== "Learn, optimize and scale" && step.title !== "Start chatting with your Orkestrator" && step.title !== "Choose your category profile" && step.title !== "Connect your store and campaigns" && step.title !== "Approve plays and launch" && (
+                  <span className="absolute bottom-3 right-3 z-30 rounded-full bg-orange-500/90 px-3 py-1 text-xs font-bold text-white shadow-[0_10px_25px_rgba(0,0,0,0.18)] border border-white/40 backdrop-blur-md">
+                    Step {index + 1}
+                  </span>
+                )}
               </div>
             </div>
           </ScrollAnimationWrapper>
