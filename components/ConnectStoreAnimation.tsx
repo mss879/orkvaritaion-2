@@ -152,11 +152,7 @@ const ConnectionSequence = ({ isActive }: { isActive: boolean }) => {
                 transition={{ delay: tool.delay, type: "spring", stiffness: 200 }}
               >
                 <div className={`p-2 rounded-lg ${tool.bg} w-12 h-12 flex items-center justify-center`}>
-                  {tool.imageSrc ? (
-                    <img src={tool.imageSrc} alt={tool.label} className="w-full h-full object-contain" />
-                  ) : (
-                    tool.icon && <tool.icon className={`w-6 h-6 ${tool.color}`} />
-                  )}
+                  <img src={tool.imageSrc} alt={tool.label} className="w-full h-full object-contain" />
                 </div>
                 <span className="text-[10px] font-medium text-gray-500">{tool.label}</span>
                 
