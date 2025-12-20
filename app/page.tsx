@@ -1,56 +1,35 @@
-import type { ComponentType } from 'react';
-import Integrations from '@/components/Integrations';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import {
   ArrowRight,
   ArrowUp,
   AudioLines,
-  BarChart3,
-  BellOff,
-  Box,
-  CheckCircle2,
-  Cpu,
-  Database,
-  Eye,
-  Globe,
-  Layout,
-  Layers,
-  Mail,
   MessageSquare,
-  Mic,
   Paperclip,
-  Play,
-  Plug,
   Plus,
-  Radio,
-  Search,
-  Server,
-  ShoppingBag,
-  Smartphone,
   Sparkles,
-  TrendingUp,
-  Users,
-  Workflow,
-  Zap,
 } from 'lucide-react';
 import FloatingNavbar from '@/components/FloatingNavbar';
-import HowItWorks from '@/components/HowItWorks';
 import Footer from '@/components/Footer';
-import TypewriterTextarea from '@/components/TypewriterTextarea';
 import ScrollAnimationWrapper from '@/components/ScrollAnimationWrapper';
-import IntelligenceCarousel from '@/components/IntelligenceCarousel';
 
-type InsightCard = {
-  title: string;
-  metric: string;
-  moneyTop: string;
-  moneyBottom: string;
-  body: string;
-  cta: string;
-  Icon: ComponentType<{ className?: string }>;
-  dotClassName: string;
-  pingClassName?: string;
-};
+// Lazy load heavy components for better performance
+const HowItWorks = dynamic(() => import('@/components/HowItWorks'), {
+  loading: () => <div className="min-h-[600px] bg-white" aria-label="Loading..." />,
+});
+const Integrations = dynamic(() => import('@/components/Integrations'), {
+  loading: () => <div className="min-h-[500px] bg-white" aria-label="Loading..." />,
+});
+const IntelligenceCarousel = dynamic(() => import('@/components/IntelligenceCarousel'), {
+  loading: () => <div className="min-h-[400px]" aria-label="Loading..." />,
+});
+const TypewriterTextarea = dynamic(() => import('@/components/TypewriterTextarea'), {
+  ssr: false,
+});
+const AdvantageAnimation = dynamic(() => import('@/components/AdvantageAnimation'), {
+  loading: () => <div className="w-full h-[500px] bg-white rounded-2xl border border-gray-100" aria-label="Loading..." />,
+  ssr: false,
+});
 
 const QUERIES = [
   'Ask Orkestrate to help create a Black Friday campaign',
@@ -59,15 +38,13 @@ const QUERIES = [
   'Ask Orkestrate to pause the Christmas campaign and run a 20 A/B test variants',
 ];
 
-import AdvantageAnimation from '@/components/AdvantageAnimation';
-
 export default function Home() {
   return (
-    <div className="bg-orange-50">
+    <main className="bg-orange-50">
       <FloatingNavbar />
 
-      <section className="min-h-screen relative overflow-hidden flex items-center justify-center px-4 pt-28 pb-24">
-        <div className="absolute inset-0 z-0">
+      <section className="min-h-screen relative overflow-hidden flex items-center justify-center px-4 pt-28 pb-24" aria-labelledby="hero-heading">
+        <div className="absolute inset-0 z-0" aria-hidden="true">
           <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_50%_100%,#E86233_0%,#ffffff_72%)]" />
         </div>
 
@@ -79,15 +56,15 @@ export default function Home() {
                   New
                 </span>
                 <span>Orkestrate Intelligence is live</span>
-                <span className="text-gray-900/50">→</span>
+                <span className="text-gray-900/50" aria-hidden="true">→</span>
               </div>
             </div>
 
-            <h2 className="text-gray-900/70 text-sm sm:text-base font-medium tracking-wide">
+            <p className="text-gray-900/70 text-sm sm:text-base font-medium tracking-wide">
               The Marketing Orchestration Platform
-            </h2>
+            </p>
 
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 leading-tight lg:whitespace-nowrap">
+            <h1 id="hero-heading" className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 leading-tight lg:whitespace-nowrap">
               Marketing made <span className="text-orange-600">smarter</span> and{' '}
               <span className="text-orange-600">simple</span>
             </h1>
@@ -349,7 +326,7 @@ export default function Home() {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/80 via-white/40 to-transparent opacity-70" />
               <div className="relative z-10">
                 <div className="mb-8 inline-flex p-4 rounded-2xl bg-white/50 border border-white/70 backdrop-blur-md shadow-sm group-hover:border-orange-200/50 transition-colors duration-500">
-                  <Image src="/fashion.png" alt="Fashion" width={64} height={64} className="object-contain drop-shadow-sm" />
+                  <Image src="/fashion.png" alt="Fashion and apparel AI model" width={64} height={64} className="object-contain drop-shadow-sm" loading="lazy" />
                 </div>
                 <h4 className="mb-4 text-2xl font-bold text-gray-900">Fashion &amp; apparel</h4>
                 <p className="text-lg leading-relaxed text-gray-500 mb-12">
@@ -379,7 +356,7 @@ export default function Home() {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/80 via-white/40 to-transparent opacity-70" />
               <div className="relative z-10">
                 <div className="mb-8 inline-flex p-4 rounded-2xl bg-white/50 border border-white/70 backdrop-blur-md shadow-sm group-hover:border-orange-200/50 transition-colors duration-500">
-                  <Image src="/skincare.png" alt="Beauty" width={64} height={64} className="object-contain drop-shadow-sm" />
+                  <Image src="/skincare.png" alt="Beauty and skincare AI model" width={64} height={64} className="object-contain drop-shadow-sm" loading="lazy" />
                 </div>
                 <h4 className="mb-4 text-2xl font-bold text-gray-900">Beauty &amp; skincare</h4>
                 <p className="text-lg leading-relaxed text-gray-500 mb-12">
@@ -409,7 +386,7 @@ export default function Home() {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/80 via-white/40 to-transparent opacity-70" />
               <div className="relative z-10">
                 <div className="mb-8 inline-flex p-4 rounded-2xl bg-white/50 border border-white/70 backdrop-blur-md shadow-sm group-hover:border-orange-200/50 transition-colors duration-500">
-                  <Image src="/home.png" alt="Home" width={64} height={64} className="object-contain drop-shadow-sm" />
+                  <Image src="/home.png" alt="Home and lifestyle AI model" width={64} height={64} className="object-contain drop-shadow-sm" loading="lazy" />
                 </div>
                 <h4 className="mb-4 text-2xl font-bold text-gray-900">Home &amp; lifestyle</h4>
                 <p className="text-lg leading-relaxed text-gray-500 mb-12">
@@ -452,6 +429,6 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
-    </div>
+    </main>
   );
 }

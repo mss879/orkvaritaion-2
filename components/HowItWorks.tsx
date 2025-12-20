@@ -1,12 +1,30 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { CheckCircle2, Plug, Layers, MessageSquare, TrendingUp } from 'lucide-react';
 import ScrollAnimationWrapper from './ScrollAnimationWrapper';
-import LearnOptimizeScaleAnimation from './LearnOptimizeScaleAnimation';
-import ChatOrkestratorAnimation from './ChatOrkestratorAnimation';
-import ChooseCategoryAnimation from './ChooseCategoryAnimation';
-import ConnectStoreAnimation from './ConnectStoreAnimation';
-import ApproveLaunchAnimation from './ApproveLaunchAnimation';
+
+// Lazy load animation components
+const LearnOptimizeScaleAnimation = dynamic(() => import('./LearnOptimizeScaleAnimation'), {
+  loading: () => <div className="w-full aspect-[4/3] bg-gray-100 rounded-xl animate-pulse" />,
+  ssr: false,
+});
+const ChatOrkestratorAnimation = dynamic(() => import('./ChatOrkestratorAnimation'), {
+  loading: () => <div className="w-full aspect-[4/3] bg-gray-100 rounded-xl animate-pulse" />,
+  ssr: false,
+});
+const ChooseCategoryAnimation = dynamic(() => import('./ChooseCategoryAnimation'), {
+  loading: () => <div className="w-full aspect-[4/3] bg-gray-100 rounded-xl animate-pulse" />,
+  ssr: false,
+});
+const ConnectStoreAnimation = dynamic(() => import('./ConnectStoreAnimation'), {
+  loading: () => <div className="w-full aspect-[4/3] bg-gray-100 rounded-xl animate-pulse" />,
+  ssr: false,
+});
+const ApproveLaunchAnimation = dynamic(() => import('./ApproveLaunchAnimation'), {
+  loading: () => <div className="w-full aspect-[4/3] bg-gray-100 rounded-xl animate-pulse" />,
+  ssr: false,
+});
 
 const steps = [
   {
@@ -63,7 +81,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="bg-white py-20 relative overflow-hidden">
+    <section className="bg-white py-20 relative overflow-hidden" aria-labelledby="how-it-works-heading">
       <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
       <ScrollAnimationWrapper className="text-center mb-16">
         <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-1.5 mb-6 backdrop-blur-md">
@@ -73,7 +91,7 @@ export default function HowItWorks() {
           </span>
           <span className="text-xs font-mono font-medium text-orange-700 uppercase tracking-wider">System Workflow</span>
         </div>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-4">How Orkestrate works</h2>
+        <h2 id="how-it-works-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-4">How Orkestrate works</h2>
         <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
           Turn a small team into a high output marketing engine in 5 automated steps.
         </p>

@@ -1,25 +1,40 @@
 import './globals.css';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Poppins } from 'next/font/google';
 
 const poppins = Poppins({ 
   subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
   variable: '--font-poppins',
+  preload: true,
 });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#ffffff',
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://orkestrate.com'),
   title: {
     default: 'Orkestrate — Intelligence layer for marketing orchestration',
     template: '%s | Orkestrate',
   },
   icons: {
-    icon: [{ url: '/Favicon%20-%20Light.png', type: 'image/png' }],
+    icon: [
+      { url: '/Favicon%20-%20Light.png', type: 'image/png', sizes: '32x32' },
+      { url: '/Favicon%20-%20Dark.png', type: 'image/png', sizes: '16x16' },
+    ],
+    apple: [{ url: '/Favicon%20-%20Light.png', sizes: '180x180' }],
   },
   description:
     'Orchestrate your existing marketing stack with agentic infrastructure that turns data into campaigns, journeys, and experiments across your channels.',
   applicationName: 'Orkestrate',
+  authors: [{ name: 'Orkestrate', url: 'https://orkestrate.com' }],
+  generator: 'Next.js',
   keywords: [
     'Orkestrate',
     'AI marketing',
@@ -33,6 +48,9 @@ export const metadata: Metadata = {
     'data warehouse',
     'customer journeys',
     'personalization',
+    'marketing orchestration',
+    'AI agents',
+    'ecommerce marketing',
   ],
   robots: {
     index: true,
@@ -45,8 +63,13 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
     },
   },
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     type: 'website',
+    locale: 'en_US',
+    url: '/',
     siteName: 'Orkestrate',
     title: 'Orkestrate — Intelligence layer for marketing orchestration',
     description:
@@ -56,7 +79,7 @@ export const metadata: Metadata = {
         url: '/logo.png',
         width: 1200,
         height: 630,
-        alt: 'Orkestrate',
+        alt: 'Orkestrate - AI Marketing Orchestration Platform',
       },
     ],
   },
@@ -66,7 +89,12 @@ export const metadata: Metadata = {
     description:
       'Orchestrate your existing marketing stack with agentic infrastructure that turns data into campaigns, journeys, and experiments across your channels.',
     images: ['/logo.png'],
+    creator: '@orkestrate',
   },
+  verification: {
+    google: 'your-google-verification-code',
+  },
+  category: 'technology',
 };
 
 export default function RootLayout({
@@ -74,8 +102,36 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Orkestrate',
+    description: 'AI-powered marketing orchestration platform',
+    url: 'https://orkestrate.com',
+    logo: 'https://orkestrate.com/logo.png',
+    sameAs: [
+      'https://twitter.com/orkestrate',
+      'https://www.linkedin.com/company/orkestrateco',
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'hello@orkestrate.com',
+      contactType: 'customer service',
+    },
+  };
+
   return (
-    <html lang="en">
+    <html lang="en" className={poppins.variable}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.hubspot.com" />
+        <link rel="dns-prefetch" href="https://cdn.simpleicons.org" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={poppins.className}>{children}</body>
     </html>
   );

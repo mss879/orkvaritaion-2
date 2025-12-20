@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Check, Clock, Zap, BarChart3 } from 'lucide-react';
 
 const Integrations = () => {
@@ -7,7 +8,7 @@ const Integrations = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column: Circular Graphic */}
-          <div className="relative flex items-center justify-center min-h-[500px]">
+          <div className="relative flex items-center justify-center min-h-[500px]" aria-hidden="true">
             {/* Background Gradients */}
             <div className="absolute inset-0 bg-orange-500/5 blur-[100px] rounded-full" />
             
@@ -17,7 +18,7 @@ const Integrations = () => {
             
             {/* Center Logo */}
             <div className="relative z-10 w-24 h-24 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-2xl shadow-orange-500/20">
-              <img src="/Favicon - Dark.png" alt="Orkestrate" className="w-12 h-12 object-contain" />
+              <Image src="/Favicon - Dark.png" alt="" width={48} height={48} className="object-contain" loading="lazy" />
             </div>
 
             {/* Icons - Inner Ring */}
@@ -25,28 +26,28 @@ const Integrations = () => {
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <div className="animate-spin-reverse-slow" style={{ animationDuration: '60s' }}>
                   <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-2">
-                    <img src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/slack-icon-2.svg" alt="Slack" className="w-6 h-6" />
+                    <Image src="/integrations/slack.svg" alt="" width={24} height={24} loading="lazy" />
                   </div>
                 </div>
               </div>
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
                 <div className="animate-spin-reverse-slow" style={{ animationDuration: '60s' }}>
                   <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-2">
-                    <img src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/zapier-icon-2.svg" alt="Zapier" className="w-6 h-6" />
+                    <Image src="/integrations/zapier.svg" alt="" width={24} height={24} loading="lazy" />
                   </div>
                 </div>
               </div>
               <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2">
                 <div className="animate-spin-reverse-slow" style={{ animationDuration: '60s' }}>
                   <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-2">
-                    <img src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/google-ads-icon-2.svg" alt="Google Ads" className="w-6 h-6" />
+                    <Image src="/integrations/google-ads.svg" alt="" width={24} height={24} loading="lazy" />
                   </div>
                 </div>
               </div>
               <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2">
                 <div className="animate-spin-reverse-slow" style={{ animationDuration: '60s' }}>
                   <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-2">
-                    <img src="https://www.hubspot.com/hubfs/shopify-icon-3.svg" alt="Shopify" className="w-6 h-6" />
+                    <Image src="/shopify logo.webp" alt="" width={24} height={24} loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -58,56 +59,56 @@ const Integrations = () => {
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <div className="animate-spin-slow" style={{ animationDuration: '80s' }}>
                   <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-3">
-                    <img src="https://www.hubspot.com/hubfs/mailchimp-icon-3.svg" alt="Mailchimp" className="w-8 h-8" />
+                    <Image src="/integrations/mailchimp.svg" alt="" width={32} height={32} loading="lazy" />
                   </div>
                 </div>
               </div>
               <div className="absolute top-[14.6%] right-[14.6%] translate-x-1/2 -translate-y-1/2">
                 <div className="animate-spin-slow" style={{ animationDuration: '80s' }}>
                   <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-3">
-                    <img src="https://cdn.simpleicons.org/meta/0866FF" alt="Meta" className="w-8 h-8" />
+                    <Image src="/integrations/meta.svg" alt="" width={32} height={32} loading="lazy" />
                   </div>
                 </div>
               </div>
               <div className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2">
                 <div className="animate-spin-slow" style={{ animationDuration: '80s' }}>
                   <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-3">
-                    <img src="/integrations/firebase.svg" alt="Firebase" className="w-8 h-8" />
+                    <Image src="/integrations/firebase.svg" alt="" width={32} height={32} loading="lazy" />
                   </div>
                 </div>
               </div>
               <div className="absolute bottom-[14.6%] right-[14.6%] translate-x-1/2 translate-y-1/2">
                 <div className="animate-spin-slow" style={{ animationDuration: '80s' }}>
                   <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-3">
-                    <img src="https://cdn.simpleicons.org/airtable/18BFFF" alt="Airtable" className="w-8 h-8" />
+                    <Image src="/integrations/airtable.svg" alt="" width={32} height={32} loading="lazy" />
                   </div>
                 </div>
               </div>
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
                 <div className="animate-spin-slow" style={{ animationDuration: '80s' }}>
                   <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-3">
-                    <img src="/integrations/aws.svg" alt="AWS" className="w-8 h-8" />
+                    <Image src="/integrations/aws.svg" alt="" width={32} height={32} loading="lazy" />
                   </div>
                 </div>
               </div>
               <div className="absolute bottom-[14.6%] left-[14.6%] -translate-x-1/2 translate-y-1/2">
                 <div className="animate-spin-slow" style={{ animationDuration: '80s' }}>
                   <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-3">
-                    <img src="/integrations/extra.svg" alt="Integration" className="w-8 h-8" />
+                    <Image src="/integrations/extra.svg" alt="" width={32} height={32} loading="lazy" />
                   </div>
                 </div>
               </div>
               <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2">
                 <div className="animate-spin-slow" style={{ animationDuration: '80s' }}>
                   <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-3">
-                    <img src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/slack-icon-2.svg" alt="Slack" className="w-8 h-8" />
+                    <Image src="/integrations/slack.svg" alt="" width={32} height={32} loading="lazy" />
                   </div>
                 </div>
               </div>
               <div className="absolute top-[14.6%] left-[14.6%] -translate-x-1/2 -translate-y-1/2">
                 <div className="animate-spin-slow" style={{ animationDuration: '80s' }}>
                   <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-gray-100 shadow-md p-3">
-                    <img src="https://www.hubspot.com/hubfs/Imported%20sitepage%20images/zapier-icon-2.svg" alt="Zapier" className="w-8 h-8" />
+                    <Image src="/integrations/zapier.svg" alt="" width={32} height={32} loading="lazy" />
                   </div>
                 </div>
               </div>

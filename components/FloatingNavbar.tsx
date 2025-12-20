@@ -5,12 +5,19 @@ import { Button } from '@/components/ui/button';
 
 const FloatingNavbar = () => {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-20">
+    <nav className="fixed top-0 left-0 right-0 z-20" role="navigation" aria-label="Main navigation">
       <div className="bg-[#fbf7ef]/70 backdrop-blur supports-[backdrop-filter]:bg-[#fbf7ef]/60 border-b border-black/5">
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex h-16 items-center justify-between gap-4">
-            <Link href="/" className="flex items-center gap-2">
-              <Image src="/logo.png" alt="Orkestrate" width={140} height={40} priority />
+            <Link href="/" className="flex items-center gap-2" aria-label="Orkestrate - Home">
+              <Image 
+                src="/logo.png" 
+                alt="Orkestrate" 
+                width={140} 
+                height={40} 
+                priority 
+                fetchPriority="high"
+              />
             </Link>
 
             <div className="hidden md:flex items-center gap-10 text-base font-medium text-foreground/80">
