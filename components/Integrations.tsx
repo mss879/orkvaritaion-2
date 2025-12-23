@@ -116,43 +116,64 @@ const Integrations = () => {
           </div>
 
           {/* Right Column: Content */}
-          <div className="space-y-8">
-            <div>
-              <h4 className="text-orange-500 font-medium mb-2">Integration & Setup</h4>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">We work where you work</h2>
-              <p className="text-gray-600 text-lg">
-                Orkestrate integrates effortlessly with your existing tools and workflows. Connect to over 2,000+ apps for fast onboarding and efficient operations.
-              </p>
-            </div>
+          <div className="relative z-10 pl-0 lg:pl-10">
+            {/* Decorative gradient behind text for glass effect */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-orange-500/10 to-purple-500/10 blur-3xl -z-10 rounded-full opacity-50" />
 
-            <div className="space-y-6">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center">
-                  <Clock className="w-6 h-6 text-orange-500" />
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <div className="inline-flex items-center rounded-full border border-orange-500/20 bg-orange-500/5 px-3 py-1 text-sm font-medium text-orange-600 backdrop-blur-sm">
+                  <span className="flex h-2 w-2 rounded-full bg-orange-500 mr-2 animate-pulse"></span>
+                  Integration & Setup
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-1 text-gray-900">Seamless Integrations</h3>
-                  <p className="text-gray-600">Connect your store (Shopify) and existing tools like Klaviyo, Attentive, or Braze instantly.</p>
-                </div>
+                
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
+                  We work where <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-400">you work</span>
+                </h2>
+                
+                <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
+                  Orkestrate integrates effortlessly with your existing tools. Connect to over 2,000+ apps for fast onboarding and efficient operations.
+                </p>
               </div>
 
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center">
-                  <Zap className="w-6 h-6 text-orange-500" />
+              <div className="grid gap-4">
+                {/* Feature 1 */}
+                <div className="group relative overflow-hidden rounded-2xl border border-white/40 bg-white/40 p-5 backdrop-blur-md transition-all hover:bg-white/60 hover:shadow-lg hover:shadow-orange-500/5 hover:-translate-y-1">
+                  <div className="flex gap-4 items-start">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-white shadow-lg shadow-orange-500/20 group-hover:scale-110 transition-transform duration-300">
+                      <Clock className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">Seamless Integrations</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">Connect your store (Shopify) and existing tools like Klaviyo, Attentive, or Braze instantly.</p>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-1 text-gray-900">Fast Onboarding</h3>
-                  <p className="text-gray-600">Orkestrate agents rapidly learn your brand and systems, completing integration & testing in under 8 hours.</p>
-                </div>
-              </div>
 
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center">
-                  <BarChart3 className="w-6 h-6 text-orange-500" />
+                {/* Feature 2 */}
+                <div className="group relative overflow-hidden rounded-2xl border border-white/40 bg-white/40 p-5 backdrop-blur-md transition-all hover:bg-white/60 hover:shadow-lg hover:shadow-orange-500/5 hover:-translate-y-1">
+                  <div className="flex gap-4 items-start">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-white shadow-lg shadow-orange-500/20 group-hover:scale-110 transition-transform duration-300">
+                      <Zap className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">Fast Onboarding</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">Orkestrate agents rapidly learn your brand and systems, completing integration & testing in under 8 hours.</p>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-1 text-gray-900">Multi-Model AI</h3>
-                  <p className="text-gray-600">Orchestrate your agents, channels, and data in one interface with continuous intelligence.</p>
+
+                {/* Feature 3 */}
+                <div className="group relative overflow-hidden rounded-2xl border border-white/40 bg-white/40 p-5 backdrop-blur-md transition-all hover:bg-white/60 hover:shadow-lg hover:shadow-orange-500/5 hover:-translate-y-1">
+                  <div className="flex gap-4 items-start">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-white shadow-lg shadow-orange-500/20 group-hover:scale-110 transition-transform duration-300">
+                      <BarChart3 className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">Multi-Model AI</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">Orchestrate your agents, channels, and data in one interface with continuous intelligence.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

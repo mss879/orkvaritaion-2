@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
+import { ReactNode, HTMLAttributes } from "react";
 
-interface ScrollAnimationWrapperProps {
+interface ScrollAnimationWrapperProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   className?: string;
 }
@@ -8,9 +8,10 @@ interface ScrollAnimationWrapperProps {
 export default function ScrollAnimationWrapper({
   children,
   className,
+  ...props
 }: ScrollAnimationWrapperProps) {
   return (
-    <div className={className}>
+    <div className={className} {...props}>
       {children}
     </div>
   );

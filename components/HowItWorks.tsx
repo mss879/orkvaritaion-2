@@ -86,16 +86,9 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="bg-white py-24 md:py-32 relative overflow-hidden" aria-labelledby="how-it-works-heading">
+    <section className="bg-white py-24 md:py-32 relative" aria-labelledby="how-it-works-heading">
       <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
       <ScrollAnimationWrapper className="text-center mb-12">
-        <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-1.5 mb-6 backdrop-blur-md">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orkestrate-pulse opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-orkestrate-pulse"></span>
-          </span>
-          <span className="text-xs font-mono font-medium text-orkestrate-deep uppercase tracking-wider">System Workflow</span>
-        </div>
         <h2 id="how-it-works-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-4">How Orkestrate works</h2>
         <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
           Turn a small team into a high output marketing engine in 5 automated steps.
@@ -106,32 +99,30 @@ export default function HowItWorks() {
         {steps.map((step, index) => (
           <ScrollAnimationWrapper 
             key={index}
-            className={`relative bg-white/35 backdrop-blur-xl border border-orkestrate-pulse/20 rounded-3xl p-6 flex flex-col gap-10 sm:p-12 sm:gap-12 md:items-center shadow-[0_8px_32px_rgba(0,0,0,0.10),inset_0_1px_0_rgba(255,255,255,0.55)] hover:bg-white/45 hover:border-orkestrate-pulse/40 hover:shadow-[0_18px_60px_rgba(232,98,51,0.14),inset_0_1px_0_rgba(255,255,255,0.70)] transition-[background-color,border-color,box-shadow] duration-500 overflow-hidden will-change-transform ${
+            style={{ top: `calc(120px + ${index * 20}px)` }}
+            className={`sticky relative bg-gradient-to-br from-[#E86233] to-[#2B1209] rounded-3xl p-6 flex flex-col gap-10 sm:p-12 sm:gap-12 md:items-center shadow-xl transition-all duration-500 overflow-hidden will-change-transform ${
               index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'
             }`}
           >
-            {/* Glass texture overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/70 via-white/20 to-transparent opacity-60 pointer-events-none" />
-            <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_15%_15%,rgba(255,255,255,0.60),transparent_55%)] opacity-70 pointer-events-none" />
             
             <div className="relative z-10 md:w-1/2 lg:w-[45%]">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">{step.title}</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">{step.title}</h3>
               <ul className="grid gap-4">
                 {step.items.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-orkestrate-pulse flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 font-medium leading-relaxed">{item}</span>
+                    <CheckCircle2 className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
+                    <span className="text-white/90 font-medium leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="relative z-10 md:w-1/2 lg:w-[55%] flex items-center">
               <div
-                className={`relative w-full max-w-lg overflow-hidden rounded-xl lg:rounded-3xl border border-white/45 bg-white/20 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.14),inset_0_1px_0_rgba(255,255,255,0.40)] ${
+                className={`relative w-full max-w-lg overflow-hidden rounded-xl lg:rounded-3xl border border-white/20 bg-white/10 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.2)] ${
                   index % 2 === 1 ? 'md:mr-auto' : 'md:ml-auto'
                 }`}
               >
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent z-20" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent z-20" />
 
                 {step.Animation ? (
                   <step.Animation />

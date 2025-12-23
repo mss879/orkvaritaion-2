@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   ArrowRight,
   CheckCircle2,
@@ -30,115 +31,170 @@ export default function AboutPage() {
     <div className="min-h-screen bg-white">
       <FloatingNavbar />
 
-      {/* Section 1: The Hero (The Vision) */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_50%_0%,#fff7ed_0%,#ffffff_70%)]" />
-        </div>
-        <div className="max-w-6xl mx-auto relative z-10 text-center">
+      {/* Section 1: Meet Orkestrate */}
+      <section className="pt-32 pb-10 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
           <ScrollAnimationWrapper>
-            <div className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-1.5 mb-8">
-              <span className="text-sm font-medium text-orange-600">
-                From Marketers to Orchestrators
-              </span>
-            </div>
-            <h1 className="font-black text-5xl md:text-7xl tracking-tight text-gray-900 mb-8">
-              We are building the command center for the{" "}
-              <span className="text-orange-600">Agentic Era.</span>
+            <h1 className="font-black text-5xl md:text-6xl text-gray-900 mb-4">
+              Meet Orkestrate:
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-medium leading-relaxed">
-              We believe marketing shouldn't be about connecting pipes or moving
-              data. It should be about designing outcomes.
-            </p>
-          </ScrollAnimationWrapper>
-
-          <ScrollAnimationWrapper className="mt-12 max-w-4xl mx-auto">
-            <p className="text-lg text-gray-600 leading-relaxed">
-              For too long, brilliant marketing teams have been stuck in the
-              "Execution Trap." They spend days designing, developing, and
-              troubleshooting single campaigns, leaving no room for strategy. We
-              created Orkestrate to flip the script—giving marketers an
-              intelligent layer of AI agents that handle the "how," so you can
-              focus on the "why."
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-700">
+              The <span className="text-orange-600">Agentic Customer Journey Orchestration</span> Platform
+            </h2>
           </ScrollAnimationWrapper>
         </div>
       </section>
 
-      {/* Section 2: The Origin Story (The "Why") */}
-      <section className="py-20 px-4 bg-gray-50">
+      {/* Section 2: Who We Are */}
+      <section className="py-10 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="max-w-4xl mx-auto">
             <ScrollAnimationWrapper>
-              <h2 className="font-black text-4xl md:text-5xl text-gray-900 mb-6 leading-tight">
-                Born from the frustration of{" "}
-                <span className="text-orange-600">1,700+ CMOs.</span>
+              <h2 className="font-black text-4xl text-gray-900 mb-6">
+                Who We Are
               </h2>
-              <div className="space-y-6 text-lg text-gray-600">
+              <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                 <p>
-                  After years of building Marketing Technology and working
-                  alongside the world’s top CMOs, our founders noticed a glaring
-                  pattern. The tools were getting better, but the work was
-                  getting harder.
+                  Orkestrate was founded by a group of MarTech veterans and AI
+                  engineers based on our collective expertise in advancing
+                  marketing automation at top global companies.
                 </p>
-                <p>Teams were drowning in SaaS tasks.</p>
-                <ul className="space-y-4 mt-4">
-                  <li className="flex items-start gap-3">
-                    <div className="p-1 rounded-full bg-orange-100 text-orange-600 mt-1">
-                      <CheckCircle2 className="w-4 h-4" />
-                    </div>
-                    <span>
-                      <strong className="text-gray-900">72% of marketers</strong>{" "}
-                      were forced to reuse old creatives because new production
-                      was too slow.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="p-1 rounded-full bg-orange-100 text-orange-600 mt-1">
-                      <CheckCircle2 className="w-4 h-4" />
-                    </div>
-                    <span>
-                      <strong className="text-gray-900">
-                        43% of "personalized" experiences
-                      </strong>{" "}
-                      felt generic to customers.
-                    </span>
-                  </li>
-                </ul>
+                <p>
+                  We started Orkestrate because we saw a paradigm shift unfolding
+                  where the most successful marketing teams were drowning in
+                  execution tasks rather than focusing on strategy.
+                </p>
                 <p>
                   We realized the problem wasn't the tools—it was the workflow.
-                  The modern stack was fragmented, brittle, and manual. It
-                  needed an orchestrator.
+                  The modern stack was fragmented, brittle, and manual. It needed
+                  an orchestrator to shift from static rules to real-time
+                  decision-making driven by AI agents.
                 </p>
               </div>
             </ScrollAnimationWrapper>
-            <ScrollAnimationWrapper className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200 bg-white p-8">
-                <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-orange-500 to-orange-600" />
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4 p-4 rounded-xl bg-red-50 border border-red-100">
-                    <div className="p-2 bg-red-100 rounded-lg text-red-600">
-                      <Layout className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">The Problem</p>
-                      <p className="text-sm text-gray-600">Drowning in SaaS tasks</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-center">
-                    <ArrowRight className="w-6 h-6 text-gray-400 rotate-90" />
-                  </div>
-                  <div className="flex items-center gap-4 p-4 rounded-xl bg-orange-50 border border-orange-100">
-                    <div className="p-2 bg-orange-100 rounded-lg text-orange-600">
-                      <Layers className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">The Solution</p>
-                      <p className="text-sm text-gray-600">Intelligent Orchestration</p>
-                    </div>
-                  </div>
-                </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Our Values */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto px-6 py-10 md:px-10 lg:py-20 2xl:px-20">
+          <div className="text-gray-800 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="px-4 py-6 flex items-center sm:px-6 lg:p-10 2xl:p-16">
+              <ScrollAnimationWrapper>
+                <header>
+                  <p className="mb-6">
+                    <span className="text-orange-600 border border-orange-600 rounded-sm px-3 py-2 inline-block text-xs font-medium uppercase tracking-wider">
+                      Our Values
+                    </span>
+                  </p>
+                  <h2 className="font-black text-5xl text-gray-900 leading-tight">
+                    What We<br /> Believe In
+                  </h2>
+                </header>
+              </ScrollAnimationWrapper>
+            </div>
+
+            <ScrollAnimationWrapper className="px-4 py-6 sm:px-6">
+              <div className="mb-6">
+                <img
+                  alt="Quality"
+                  loading="lazy"
+                  width={733}
+                  height={342}
+                  decoding="async"
+                  className="block w-full rounded-xl border border-solid border-orange-100"
+                  style={{ color: "transparent", filter: "invert(46%) sepia(92%) saturate(1846%) hue-rotate(360deg) brightness(96%) contrast(96%)" }}
+                  src="/quality.svg"
+                />
               </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Quality</h3>
+              <p className="text-gray-600 leading-relaxed">
+                We strive to achieve the highest standards of excellence in every
+                component of our work.
+              </p>
+            </ScrollAnimationWrapper>
+
+            <ScrollAnimationWrapper className="px-4 py-6 sm:px-6">
+              <div className="mb-6">
+                <img
+                  alt="Ownership"
+                  loading="lazy"
+                  width={733}
+                  height={342}
+                  decoding="async"
+                  className="block w-full rounded-xl border border-solid border-orange-100"
+                  style={{ color: "transparent", filter: "invert(46%) sepia(92%) saturate(1846%) hue-rotate(360deg) brightness(96%) contrast(96%)" }}
+                  src="/pOwnership.svg"
+                />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Ownership</h3>
+              <p className="text-gray-600 leading-relaxed">
+                The best companies are built by teams who take initiative and are
+                willing to go above & beyond their job description.
+              </p>
+            </ScrollAnimationWrapper>
+
+            <ScrollAnimationWrapper className="px-4 py-6 sm:px-6">
+              <div className="mb-6">
+                <img
+                  alt="Transparency"
+                  loading="lazy"
+                  width={733}
+                  height={342}
+                  decoding="async"
+                  className="block w-full rounded-xl border border-solid border-orange-100"
+                  style={{ color: "transparent", filter: "invert(46%) sepia(92%) saturate(1846%) hue-rotate(360deg) brightness(96%) contrast(96%)" }}
+                  src="/Transparency.svg"
+                />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Transparency</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Trust is built on transparency. We believe in clear, honest
+                communication.
+              </p>
+            </ScrollAnimationWrapper>
+
+            <ScrollAnimationWrapper className="px-4 py-6 sm:px-6">
+              <div className="mb-6">
+                <img
+                  alt="Customer Obsession"
+                  loading="lazy"
+                  width={733}
+                  height={342}
+                  decoding="async"
+                  className="block w-full rounded-xl border border-solid border-orange-100"
+                  style={{ color: "transparent", filter: "invert(46%) sepia(92%) saturate(1846%) hue-rotate(360deg) brightness(96%) contrast(96%)" }}
+                  src="/Customer Obsession.svg"
+                />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Customer Obsession
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Our North Star — Orkestrate's success is measured by the success
+                of our customers.
+              </p>
+            </ScrollAnimationWrapper>
+
+            <ScrollAnimationWrapper className="px-4 py-6 sm:px-6">
+              <div className="mb-6">
+                <img
+                  alt="Velocity"
+                  loading="lazy"
+                  width={733}
+                  height={342}
+                  decoding="async"
+                  className="block w-full rounded-xl border border-solid border-orange-100"
+                  style={{ color: "transparent", filter: "invert(46%) sepia(92%) saturate(1846%) hue-rotate(360deg) brightness(96%) contrast(96%)" }}
+                  src="/Velocity.svg"
+                />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Velocity</h3>
+              <p className="text-gray-600 leading-relaxed">
+                We believe rapid execution and decision-making are essential to
+                maintaining a competitive edge.
+              </p>
             </ScrollAnimationWrapper>
           </div>
         </div>

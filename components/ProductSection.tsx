@@ -6,13 +6,13 @@ import { IntegrationAnimation, AgentsAnimation, IntelligenceAnimation } from './
 
 export default function ProductSection() {
   return (
-    <section className="py-24 md:py-32 bg-orange-50">
+    <section className="py-12 md:py-32 bg-orange-50">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
             AI agents built to accelerate your content supply chain
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
             Orchestrate your entire marketing workflow with intelligent agents that learn and adapt.
           </p>
         </div>
@@ -25,19 +25,19 @@ export default function ProductSection() {
               
               <TabsTrigger 
                 value="integration"
-                className="relative z-10 rounded-full py-3 text-sm md:text-base font-semibold text-white/90 data-[state=active]:bg-white data-[state=active]:text-orkestrate-pulse data-[state=active]:shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300"
+                className="relative z-10 rounded-full py-2 md:py-3 text-xs md:text-base font-semibold text-white/90 data-[state=active]:bg-white data-[state=active]:text-orkestrate-pulse data-[state=active]:shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300"
               >
-                Integration & Setup
+                Integration
               </TabsTrigger>
               <TabsTrigger 
                 value="agents"
-                className="relative z-10 rounded-full py-3 text-sm md:text-base font-semibold text-white/90 data-[state=active]:bg-white data-[state=active]:text-orkestrate-pulse data-[state=active]:shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300"
+                className="relative z-10 rounded-full py-2 md:py-3 text-xs md:text-base font-semibold text-white/90 data-[state=active]:bg-white data-[state=active]:text-orkestrate-pulse data-[state=active]:shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300"
               >
                 Agents
               </TabsTrigger>
               <TabsTrigger 
                 value="intelligence"
-                className="relative z-10 rounded-full py-3 text-sm md:text-base font-semibold text-white/90 data-[state=active]:bg-white data-[state=active]:text-orkestrate-pulse data-[state=active]:shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300"
+                className="relative z-10 rounded-full py-2 md:py-3 text-xs md:text-base font-semibold text-white/90 data-[state=active]:bg-white data-[state=active]:text-orkestrate-pulse data-[state=active]:shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300"
               >
                 Intelligence
               </TabsTrigger>
@@ -47,18 +47,18 @@ export default function ProductSection() {
           <div className="mt-8">
             {/* Integration & Setup */}
             <TabsContent value="integration" className="mt-0 focus-visible:outline-none">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="space-y-8">
+              <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                <div className="space-y-6 md:space-y-8">
                   <div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                    <h3 className="text-xl md:text-3xl font-bold text-gray-900 mb-2 md:mb-4">
                       Works where you work
                     </h3>
-                    <p className="text-gray-600 text-lg leading-relaxed">
+                    <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                       Multi-Model AI: Orchestrate your agents, channels, and data in one interface with continuous intelligence.
                     </p>
                   </div>
                   
-                  <div className="space-y-6">
+                  <div className="space-y-4 md:space-y-6">
                     <FeatureItem 
                       icon={<Layers className="w-5 h-5 text-orkestrate-pulse" />}
                       title="Seamless integrations"
@@ -81,7 +81,7 @@ export default function ProductSection() {
                     />
                   </div>
                 </div>
-                <div className="relative h-[300px] md:h-[400px] bg-gradient-to-br from-orkestrate-crimson/20 to-white/40 backdrop-blur-xl rounded-3xl border border-orkestrate-pulse/30 p-8 flex items-center justify-center shadow-[0_20px_40px_rgba(234,88,12,0.1),inset_0_1px_0_rgba(255,255,255,0.8)] overflow-hidden group hover:border-orkestrate-pulse/50 transition-colors duration-500">
+                <div className="relative h-[250px] md:h-[400px] bg-gradient-to-br from-orkestrate-crimson/20 to-white/40 backdrop-blur-xl rounded-3xl border border-orkestrate-pulse/30 p-8 flex items-center justify-center shadow-[0_20px_40px_rgba(234,88,12,0.1),inset_0_1px_0_rgba(255,255,255,0.8)] overflow-hidden group hover:border-orkestrate-pulse/50 transition-colors duration-500">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.8),transparent_70%)] pointer-events-none" />
                   <IntegrationAnimation />
                 </div>
@@ -90,18 +90,18 @@ export default function ProductSection() {
 
             {/* Agents */}
             <TabsContent value="agents" className="mt-0 focus-visible:outline-none">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="space-y-8">
+              <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                <div className="space-y-6 md:space-y-8">
                   <div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                    <h3 className="text-xl md:text-3xl font-bold text-gray-900 mb-2 md:mb-4">
                       Always-on execution that ships work daily
                     </h3>
-                    <p className="text-gray-600 text-lg leading-relaxed">
+                    <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                       Deploy specialized agents that work 24/7 to optimize every aspect of your marketing campaigns.
                     </p>
                   </div>
                   
-                  <div className="space-y-6">
+                  <div className="space-y-4 md:space-y-6">
                     <FeatureItem 
                       icon={<Bot className="w-5 h-5 text-orkestrate-pulse" />}
                       title="Campaign builder agent"
@@ -129,7 +129,7 @@ export default function ProductSection() {
                     />
                   </div>
                 </div>
-                <div className="relative h-[300px] md:h-[400px] bg-gradient-to-br from-orkestrate-crimson/20 to-white/40 backdrop-blur-xl rounded-3xl border border-orkestrate-pulse/30 p-8 flex items-center justify-center shadow-[0_20px_40px_rgba(234,88,12,0.1),inset_0_1px_0_rgba(255,255,255,0.8)] overflow-hidden group hover:border-orkestrate-pulse/50 transition-colors duration-500">
+                <div className="relative h-[250px] md:h-[400px] bg-gradient-to-br from-orkestrate-crimson/20 to-white/40 backdrop-blur-xl rounded-3xl border border-orkestrate-pulse/30 p-8 flex items-center justify-center shadow-[0_20px_40px_rgba(234,88,12,0.1),inset_0_1px_0_rgba(255,255,255,0.8)] overflow-hidden group hover:border-orkestrate-pulse/50 transition-colors duration-500">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.8),transparent_70%)] pointer-events-none" />
                   <AgentsAnimation />
                 </div>
@@ -138,18 +138,18 @@ export default function ProductSection() {
 
             {/* Intelligence */}
             <TabsContent value="intelligence" className="mt-0 focus-visible:outline-none">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="space-y-8">
+              <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                <div className="space-y-6 md:space-y-8">
                   <div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                    <h3 className="text-xl md:text-3xl font-bold text-gray-900 mb-2 md:mb-4">
                       Category-native intelligence that compounds
                     </h3>
-                    <p className="text-gray-600 text-lg leading-relaxed">
+                    <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                       Built-in logic and memory that gets smarter with every campaign you run.
                     </p>
                   </div>
                   
-                  <div className="space-y-6">
+                  <div className="space-y-4 md:space-y-6">
                     <FeatureItem 
                       icon={<Brain className="w-5 h-5 text-orkestrate-pulse" />}
                       title="Category models"
@@ -172,7 +172,7 @@ export default function ProductSection() {
                     />
                   </div>
                 </div>
-                <div className="relative h-[300px] md:h-[400px] bg-gradient-to-br from-orkestrate-crimson/20 to-white/40 backdrop-blur-xl rounded-3xl border border-orkestrate-pulse/30 p-8 flex items-center justify-center shadow-[0_20px_40px_rgba(234,88,12,0.1),inset_0_1px_0_rgba(255,255,255,0.8)] overflow-hidden group hover:border-orkestrate-pulse/50 transition-colors duration-500">
+                <div className="relative h-[250px] md:h-[400px] bg-gradient-to-br from-orkestrate-crimson/20 to-white/40 backdrop-blur-xl rounded-3xl border border-orkestrate-pulse/30 p-8 flex items-center justify-center shadow-[0_20px_40px_rgba(234,88,12,0.1),inset_0_1px_0_rgba(255,255,255,0.8)] overflow-hidden group hover:border-orkestrate-pulse/50 transition-colors duration-500">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.8),transparent_70%)] pointer-events-none" />
                   <IntelligenceAnimation />
                 </div>

@@ -1,22 +1,26 @@
 "use client";
 
 import React, { useRef, useState, useCallback, memo } from 'react';
-import { ArrowRight, Users, Zap, Eye, BellOff, ShoppingBag } from 'lucide-react';
+import { ArrowRight, Users, Zap, Eye, BellOff, ShoppingBag, Clock, Mail, MessageSquare } from 'lucide-react';
 import ScrollAnimationWrapper from './ScrollAnimationWrapper';
 
 type InsightCard = {
   title: string;
-  metric: string;
-  moneyTop: string;
-  moneyBottom: string;
+  metric?: string;
+  moneyTop?: string;
+  moneyBottom?: string;
   body: string;
   cta: string;
   Icon: React.ComponentType<{ className?: string }>;
   dotClassName: string;
   pingClassName?: string;
+  type?: 'default' | 'nudge';
+  waitTime?: string;
+  stats?: { label: string; value: string }[];
 };
 
-const insightCards: ReadonlyArray<InsightCard> = [
+export default function IntelligenceCarousel() {
+  const insightCards: ReadonlyArray<InsightCard> = [
     {
       title: 'High value lapsing',
       metric: '183 customers at risk',
@@ -74,9 +78,8 @@ const insightCards: ReadonlyArray<InsightCard> = [
       Icon: ShoppingBag,
       dotClassName: 'bg-orange-500',
     },
-];
+  ];
 
-export default function IntelligenceCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -106,7 +109,7 @@ export default function IntelligenceCarousel() {
   }, [isDragging, startX, scrollLeft]);
 
   return (
-    <section className="relative px-4 py-24 md:py-32 bg-orange-50" aria-labelledby="intelligence-heading">
+    <section className="relative px-4 py-24 md:py-32 bg-[#F5F1ED]" aria-labelledby="intelligence-heading">
         <div className="max-w-6xl mx-auto">
           <ScrollAnimationWrapper>
             <h2 id="intelligence-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
@@ -123,9 +126,9 @@ export default function IntelligenceCarousel() {
 
           <ScrollAnimationWrapper className="mt-10 relative">
             {/* Left fade */}
-            <div className="pointer-events-none absolute -left-4 top-0 bottom-8 w-24 z-20 bg-gradient-to-r from-orange-50 to-transparent" />
+            <div className="pointer-events-none absolute -left-4 top-0 bottom-8 w-24 z-20 bg-gradient-to-r from-[#F5F1ED] to-transparent" />
             {/* Right fade */}
-            <div className="pointer-events-none absolute -right-4 top-0 bottom-8 w-24 z-20 bg-gradient-to-l from-orange-50 to-transparent" />
+            <div className="pointer-events-none absolute -right-4 top-0 bottom-8 w-24 z-20 bg-gradient-to-l from-[#F5F1ED] to-transparent" />
             <div 
                 ref={scrollRef}
                 className={`-mx-4 px-4 overflow-x-auto no-scrollbar pb-8 relative cursor-grab ${isDragging ? 'cursor-grabbing' : ''}`}
@@ -135,48 +138,102 @@ export default function IntelligenceCarousel() {
                 onMouseMove={handleMouseMove}
             >
               <div className="relative">
-                <div className="flex w-max gap-5 px-2 motion-safe:animate-marquee motion-reduce:animate-none hover:[animation-play-state:paused]">
+                <div className="flex w-max items-stretch gap-5 px-2 motion-safe:animate-marquee motion-reduce:animate-none hover:[animation-play-state:paused]">
                   {[...insightCards, ...insightCards].map((card, index) => (
                     <div
                       key={`${card.title}-${index}`}
-                      className="w-[340px] sm:w-[380px] flex flex-col justify-between rounded-2xl border border-white/20 bg-white/90 backdrop-blur-xl p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] transition-all duration-300 hover:shadow-[0_8px_32px_0_rgba(232,98,51,0.15)] hover:border-orange-500/50 hover:-translate-y-1 group select-none"
+                      className="w-[340px] sm:w-[380px] shrink-0 self-stretch group select-none"
                       aria-hidden={index >= insightCards.length}
                     >
-                      <div>
-                        <div className="flex items-start justify-between mb-5">
-                          <div className="flex items-center gap-3">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/55 text-[#DD3B2F] border border-white/50 group-hover:bg-[#DD3B2F] group-hover:text-white transition-colors duration-300">
-                              <card.Icon className="h-5 w-5" />
-                            </div>
-                            <div>
-                              <h4 className="text-base font-bold text-gray-900">{card.title}</h4>
-                              <div className="flex items-center gap-1.5 mt-0.5">
-                                <span className="relative flex h-2 w-2">
-                                  {card.pingClassName ? (
-                                    <span
-                                      className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${card.pingClassName}`}
-                                    />
-                                  ) : null}
-                                  <span className={`relative inline-flex rounded-full h-2 w-2 ${card.dotClassName}`} />
-                                </span>
-                                <p className="text-xs font-medium text-gray-500">{card.metric}</p>
-                              </div>
-                            </div>
+                      <div className="h-full rounded-[36px] border border-gray-200/70 bg-gray-50/70 p-3 shadow-[0_18px_45px_rgba(17,24,39,0.06)] transition-transform duration-300 group-hover:-translate-y-0.5">
+                        <div className="h-full rounded-[32px] border border-gray-200/70 bg-white p-6">
+                          <div className="flex h-full flex-col justify-between">
+                            {card.type === 'nudge' ? (
+                              <>
+                                <div>
+                                  <div className="flex items-start justify-between">
+                                    <div className="flex items-center gap-3">
+                                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-50 text-[#DD3B2F]">
+                                        <card.Icon className="h-5 w-5" />
+                                      </div>
+                                      <h4 className="text-base font-bold text-gray-900">{card.title}</h4>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                      <div className="p-2 rounded-xl bg-white border border-gray-200/70 text-gray-400">
+                                        <Mail className="h-4 w-4" />
+                                      </div>
+                                      <div className="p-2 rounded-xl bg-white border border-gray-200/70 text-gray-400">
+                                        <MessageSquare className="h-4 w-4" />
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <p className="mt-4 text-sm text-gray-600 leading-relaxed">{card.body}</p>
+
+                                  <div className="my-5 h-px w-full bg-gray-100" />
+
+                                  <div className="flex items-center justify-between text-sm text-gray-500">
+                                    <div className="flex items-center gap-1.5">
+                                      <Clock className="h-4 w-4" />
+                                      <span>Wait time: {card.waitTime}</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                      <span className="inline-flex h-2 w-2 rounded-full bg-gray-400" />
+                                      <span>{card.metric}</span>
+                                    </div>
+                                  </div>
+
+                                  <div className="mt-5 grid grid-cols-3 gap-3">
+                                    {card.stats?.map((stat) => (
+                                      <div key={stat.label} className="rounded-2xl bg-gray-50 px-3 py-4 text-center">
+                                        <div className="text-xs text-gray-500">{stat.label}</div>
+                                        <div className="mt-1 text-2xl font-bold text-gray-900">{stat.value}</div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+
+                                <div className="mt-6 flex justify-end">
+                                  <button className="text-sm font-medium text-gray-400 hover:text-gray-700 transition-colors">
+                                    {card.cta}
+                                  </button>
+                                </div>
+                              </>
+                            ) : (
+                              <>
+                                <div>
+                                  <div className="flex items-start justify-between mb-5">
+                                    <div className="flex items-center gap-3">
+                                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-50 text-[#DD3B2F]">
+                                        <card.Icon className="h-5 w-5" />
+                                      </div>
+                                      <div>
+                                        <h4 className="text-base font-bold text-gray-900">{card.title}</h4>
+                                        <div className="flex items-center gap-2 mt-0.5">
+                                          <span className={`inline-flex h-2 w-2 rounded-full ${card.dotClassName}`} />
+                                          <p className="text-xs font-medium text-gray-500">{card.metric}</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div className="mb-5 rounded-2xl bg-gray-50 px-4 py-4">
+                                    <p className="text-lg font-bold text-gray-900">{card.moneyTop}</p>
+                                    <p className="mt-0.5 text-sm font-medium text-gray-700">{card.moneyBottom}</p>
+                                  </div>
+
+                                  <p className="text-sm text-gray-600 leading-relaxed">{card.body}</p>
+                                </div>
+
+                                <button className="group/btn mt-6 flex w-full items-center justify-center gap-2 rounded-2xl border border-gray-200 bg-white py-3 text-sm font-semibold text-gray-900 transition-colors hover:border-gray-300">
+                                  {card.cta}
+                                  <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                                </button>
+                              </>
+                            )}
                           </div>
                         </div>
-
-                        <div className="mb-5 rounded-xl bg-white/45 p-4 border border-white/45 group-hover:border-orange-100 transition-colors">
-                          <p className="text-lg font-bold text-gray-900">{card.moneyTop}</p>
-                          <p className="mt-0.5 text-sm font-medium text-gray-700">{card.moneyBottom}</p>
-                        </div>
-
-                        <p className="text-sm text-gray-600 leading-relaxed mb-6">{card.body}</p>
                       </div>
-
-                      <button className="group/btn flex w-full items-center justify-center gap-2 rounded-xl bg-white border-2 border-gray-100 py-3 text-sm font-bold text-gray-900 transition-all hover:border-[#DD3B2F] hover:text-[#DD3B2F]">
-                        {card.cta}
-                        <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                      </button>
                     </div>
                   ))}
                 </div>
