@@ -50,7 +50,16 @@ export default function Home() {
 
       <section className="min-h-screen relative overflow-hidden flex items-center justify-center px-4 pt-24 pb-24" aria-labelledby="hero-heading">
         <div className="absolute inset-0 z-0" aria-hidden="true">
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,#FFFFFF_0%,#FFE9E0_35%,#E86233_100%)]" />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover"
+          >
+            <source src="/hero%20background.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-white/40 backdrop-blur-2xl" />
         </div>
 
         <div className="max-w-5xl w-full text-center space-y-6 relative z-10">
