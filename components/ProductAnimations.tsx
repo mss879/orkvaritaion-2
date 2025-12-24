@@ -33,26 +33,6 @@ export function IntegrationAnimation() {
           animate={{ 
             opacity: 1, 
             scale: 1,
-            x: 0, // Will be overridden by custom transform in style or variants if needed, but here we use inline styles for simplicity in responsive calculation
-          }}
-          style={{
-            // Use CSS variables or media queries for responsive positioning if possible, 
-            // but since we are in JS, we can use window width or just smaller radius for mobile.
-            // However, framer-motion 'animate' prop overrides style. 
-            // Let's use a responsive radius approach by checking screen size or using CSS transforms.
-            // A simpler way is to use percentage or smaller fixed values.
-            // Let's try to use a smaller radius for the animation directly.
-          }}
-          // We need to handle responsive radius. Since we can't easily use media queries in the `animate` prop values directly without a hook,
-          // we will use a CSS class to control the positioning or simply reduce the radius for all and rely on scaling.
-          // Alternatively, we can use `calc` in the transform if supported, but framer motion handles numbers.
-          // Let's use a smaller radius that works for both or adjust via a wrapper.
-          // Actually, the best way here without a hook is to use a smaller radius that fits mobile (e.g. 80px) and maybe scale up the container on desktop.
-          // But the user wants it to look "the same but smaller".
-          // Let's try reducing the radius to 85px which should fit in 250px width (250/2 = 125px center). 85px + 24px (half icon) = 109px. It fits!
-          animate={{ 
-            opacity: 1, 
-            scale: 1,
             x: Math.cos(angle * (Math.PI / 180)) * 85, // Reduced from 120 to 85 to fit mobile
             y: Math.sin(angle * (Math.PI / 180)) * 85,
           }}
