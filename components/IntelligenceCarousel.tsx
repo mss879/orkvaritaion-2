@@ -142,11 +142,62 @@ export default function IntelligenceCarousel() {
                   {[...insightCards, ...insightCards].map((card, index) => (
                     <div
                       key={`${card.title}-${index}`}
-                      className="w-[340px] sm:w-[380px] shrink-0 self-stretch group select-none"
+                      className="w-[300px] sm:w-[340px] shrink-0 self-stretch group select-none"
                       aria-hidden={index >= insightCards.length}
                     >
-                      <div className="h-full rounded-[36px] border border-gray-200/70 bg-gray-50/70 p-3 shadow-[0_18px_45px_rgba(17,24,39,0.06)] transition-transform duration-300 group-hover:-translate-y-0.5">
-                        <div className="h-full rounded-[32px] border border-gray-200/70 bg-white p-6">
+                      <div 
+                        className="h-full rounded-[36px] border border-white/60 p-3 transition-transform duration-300 group-hover:-translate-y-0.5 relative"
+                        style={{
+                          background: 'radial-gradient(92.09% 124.47% at 50% 99.24%, rgba(221, 226, 238, 0.40) 58.91%, rgba(187, 197, 221, 0.40) 100%)',
+                          backdropFilter: 'blur(20px) saturate(180%)',
+                          boxShadow: '0 8px 32px 0 rgba(17, 24, 39, 0.12), 0 2px 8px 0 rgba(17, 24, 39, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.5)'
+                        }}
+                      >
+                        {/* Top edge highlight */}
+                        <div 
+                          className="pointer-events-none absolute top-[2px] left-[10%] right-[10%] h-[1px]"
+                          style={{
+                            background: 'linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%)',
+                          }}
+                        />
+                        {/* Main glass reflection */}
+                        <div 
+                          className="pointer-events-none absolute inset-0 rounded-[inherit]"
+                          style={{
+                            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.4) 100%)',
+                            mixBlendMode: 'overlay'
+                          }}
+                        />
+                        {/* Secondary reflection layer */}
+                        <div 
+                          className="pointer-events-none absolute inset-0 rounded-[inherit]"
+                          style={{
+                            background: 'radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%)',
+                            mixBlendMode: 'soft-light'
+                          }}
+                        />
+                        {/* Glass texture noise */}
+                        <div 
+                          className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-30"
+                          style={{
+                            backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
+                            mixBlendMode: 'overlay'
+                          }}
+                        />
+                        {/* Frosted glass inset shadows */}
+                        <div 
+                          className="pointer-events-none absolute inset-0 rounded-[inherit]"
+                          style={{
+                            boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 0 rgba(255, 255, 255, 0.2), inset 1px 0 0 0 rgba(255, 255, 255, 0.3), inset -1px 0 0 0 rgba(255, 255, 255, 0.3)'
+                          }}
+                        />
+                        <div 
+                          className="h-full rounded-[32px] border border-white/70 bg-white/60 p-6 relative"
+                          style={{
+                            backdropFilter: 'blur(24px) saturate(200%)',
+                            boxShadow: 'inset 0 1px 1px 0 rgba(255, 255, 255, 0.8), inset 0 -1px 2px 0 rgba(0, 0, 0, 0.05), 0 4px 16px rgba(255, 255, 255, 0.2)'
+                          }}
+                        >
                           <div className="flex h-full flex-col justify-between">
                             {card.type === 'nudge' ? (
                               <>

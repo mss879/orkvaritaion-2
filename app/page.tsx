@@ -94,9 +94,52 @@ export default function Home() {
                 <div className="flex w-full flex-col items-center">
                   <div className="relative size-full w-full">
                     <form
-                      className="group flex flex-col gap-2 p-3 w-full rounded-[28px] border border-white/10 bg-black text-base shadow-[0_40px_70px_-12px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.25)] focus-within:border-white/20"
+                      className="group flex flex-col gap-2 p-3 w-full rounded-[28px] border border-white/60 text-base relative"
+                      style={{
+                        background: 'radial-gradient(92.09% 124.47% at 50% 99.24%, rgba(0, 0, 0, 0.95) 58.91%, rgba(30, 30, 30, 0.95) 100%)',
+                        backdropFilter: 'blur(20px) saturate(180%)',
+                        boxShadow: '0 40px 70px -12px rgba(0, 0, 0, 0.8), 0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.25)'
+                      }}
                     >
-                      <div className="relative flex flex-1 items-center px-1">
+                      {/* Top edge highlight */}
+                      <div 
+                        className="pointer-events-none absolute top-[2px] left-[10%] right-[10%] h-[1px] z-[5]"
+                        style={{
+                          background: 'linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%)',
+                        }}
+                      />
+                      {/* Main glass reflection */}
+                      <div 
+                        className="pointer-events-none absolute inset-0 rounded-[inherit] z-[2]"
+                        style={{
+                          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.2) 100%)',
+                          mixBlendMode: 'overlay'
+                        }}
+                      />
+                      {/* Secondary reflection layer */}
+                      <div 
+                        className="pointer-events-none absolute inset-0 rounded-[inherit] z-[2]"
+                        style={{
+                          background: 'radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 50%)',
+                          mixBlendMode: 'soft-light'
+                        }}
+                      />
+                      {/* Glass texture noise */}
+                      <div 
+                        className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-20 z-[2]"
+                        style={{
+                          backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
+                          mixBlendMode: 'overlay'
+                        }}
+                      />
+                      {/* Frosted glass inset shadows */}
+                      <div 
+                        className="pointer-events-none absolute inset-0 rounded-[inherit] z-[3]"
+                        style={{
+                          boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 0 rgba(255, 255, 255, 0.1), inset 1px 0 0 0 rgba(255, 255, 255, 0.15), inset -1px 0 0 0 rgba(255, 255, 255, 0.15)'
+                        }}
+                      />
+                      <div className="relative flex flex-1 items-center px-1 z-10">
                         <TypewriterTextarea
                           queries={QUERIES}
                           className="flex w-full resize-none border-none bg-transparent px-2 py-2 text-[16px] leading-snug text-white/80 placeholder:text-white/50 focus-visible:outline-none md:text-base max-h-[max(35svh,5rem)]"
@@ -106,7 +149,7 @@ export default function Home() {
                         />
                       </div>
 
-                      <div className="flex gap-1 flex-wrap items-center">
+                      <div className="flex gap-1 flex-wrap items-center relative z-10">
                         <button
                           type="button"
                           aria-label="Add"

@@ -81,9 +81,55 @@ export default function ProductSection() {
                     />
                   </div>
                 </div>
-                <div className="relative h-[250px] md:h-[400px] bg-gradient-to-br from-orkestrate-crimson/20 to-white/40 backdrop-blur-xl rounded-3xl border border-orkestrate-pulse/30 p-8 flex items-center justify-center shadow-[0_20px_40px_rgba(234,88,12,0.1),inset_0_1px_0_rgba(255,255,255,0.8)] overflow-hidden group hover:border-orkestrate-pulse/50 transition-colors duration-500">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.8),transparent_70%)] pointer-events-none" />
-                  <IntegrationAnimation />
+                <div 
+                  className="relative h-[250px] md:h-[400px] rounded-3xl border border-white/60 p-8 flex items-center justify-center transition-colors duration-500 group"
+                  style={{
+                    background: 'radial-gradient(92.09% 124.47% at 50% 99.24%, rgba(221, 226, 238, 0.40) 58.91%, rgba(187, 197, 221, 0.40) 100%)',
+                    backdropFilter: 'blur(20px) saturate(180%)',
+                    boxShadow: '0 8px 32px 0 rgba(17, 24, 39, 0.12), 0 2px 8px 0 rgba(17, 24, 39, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.5)'
+                  }}
+                >
+                  {/* Top edge highlight */}
+                  <div 
+                    className="pointer-events-none absolute top-[2px] left-[10%] right-[10%] h-[1px]"
+                    style={{
+                      background: 'linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%)',
+                    }}
+                  />
+                  {/* Main glass reflection */}
+                  <div 
+                    className="pointer-events-none absolute inset-0 rounded-[inherit]"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.4) 100%)',
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+                  {/* Secondary reflection layer */}
+                  <div 
+                    className="pointer-events-none absolute inset-0 rounded-[inherit]"
+                    style={{
+                      background: 'radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%)',
+                      mixBlendMode: 'soft-light'
+                    }}
+                  />
+                  {/* Glass texture noise */}
+                  <div 
+                    className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-30"
+                    style={{
+                      backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+                  {/* Frosted glass inset shadows */}
+                  <div 
+                    className="pointer-events-none absolute inset-0 rounded-[inherit]"
+                    style={{
+                      boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 0 rgba(255, 255, 255, 0.2), inset 1px 0 0 0 rgba(255, 255, 255, 0.3), inset -1px 0 0 0 rgba(255, 255, 255, 0.3)'
+                    }}
+                  />
+                  <div className="relative z-10 w-full h-full">
+                    <IntegrationAnimation />
+                  </div>
                 </div>
               </div>
             </TabsContent>
@@ -129,9 +175,55 @@ export default function ProductSection() {
                     />
                   </div>
                 </div>
-                <div className="relative h-[250px] md:h-[400px] bg-gradient-to-br from-orkestrate-crimson/20 to-white/40 backdrop-blur-xl rounded-3xl border border-orkestrate-pulse/30 p-8 flex items-center justify-center shadow-[0_20px_40px_rgba(234,88,12,0.1),inset_0_1px_0_rgba(255,255,255,0.8)] overflow-hidden group hover:border-orkestrate-pulse/50 transition-colors duration-500">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.8),transparent_70%)] pointer-events-none" />
-                  <AgentsAnimation />
+                <div 
+                  className="relative h-[250px] md:h-[400px] rounded-3xl border border-white/60 p-8 flex items-center justify-center transition-colors duration-500 group"
+                  style={{
+                    background: 'radial-gradient(92.09% 124.47% at 50% 99.24%, rgba(221, 226, 238, 0.40) 58.91%, rgba(187, 197, 221, 0.40) 100%)',
+                    backdropFilter: 'blur(20px) saturate(180%)',
+                    boxShadow: '0 8px 32px 0 rgba(17, 24, 39, 0.12), 0 2px 8px 0 rgba(17, 24, 39, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.5)'
+                  }}
+                >
+                  {/* Top edge highlight */}
+                  <div 
+                    className="pointer-events-none absolute top-[2px] left-[10%] right-[10%] h-[1px]"
+                    style={{
+                      background: 'linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%)',
+                    }}
+                  />
+                  {/* Main glass reflection */}
+                  <div 
+                    className="pointer-events-none absolute inset-0 rounded-[inherit]"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.4) 100%)',
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+                  {/* Secondary reflection layer */}
+                  <div 
+                    className="pointer-events-none absolute inset-0 rounded-[inherit]"
+                    style={{
+                      background: 'radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%)',
+                      mixBlendMode: 'soft-light'
+                    }}
+                  />
+                  {/* Glass texture noise */}
+                  <div 
+                    className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-30"
+                    style={{
+                      backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+                  {/* Frosted glass inset shadows */}
+                  <div 
+                    className="pointer-events-none absolute inset-0 rounded-[inherit]"
+                    style={{
+                      boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 0 rgba(255, 255, 255, 0.2), inset 1px 0 0 0 rgba(255, 255, 255, 0.3), inset -1px 0 0 0 rgba(255, 255, 255, 0.3)'
+                    }}
+                  />
+                  <div className="relative z-10 w-full h-full">
+                    <AgentsAnimation />
+                  </div>
                 </div>
               </div>
             </TabsContent>
@@ -172,9 +264,55 @@ export default function ProductSection() {
                     />
                   </div>
                 </div>
-                <div className="relative h-[250px] md:h-[400px] bg-gradient-to-br from-orkestrate-crimson/20 to-white/40 backdrop-blur-xl rounded-3xl border border-orkestrate-pulse/30 p-8 flex items-center justify-center shadow-[0_20px_40px_rgba(234,88,12,0.1),inset_0_1px_0_rgba(255,255,255,0.8)] overflow-hidden group hover:border-orkestrate-pulse/50 transition-colors duration-500">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.8),transparent_70%)] pointer-events-none" />
-                  <IntelligenceAnimation />
+                <div 
+                  className="relative h-[250px] md:h-[400px] rounded-3xl border border-white/60 p-8 flex items-center justify-center transition-colors duration-500 group"
+                  style={{
+                    background: 'radial-gradient(92.09% 124.47% at 50% 99.24%, rgba(221, 226, 238, 0.40) 58.91%, rgba(187, 197, 221, 0.40) 100%)',
+                    backdropFilter: 'blur(20px) saturate(180%)',
+                    boxShadow: '0 8px 32px 0 rgba(17, 24, 39, 0.12), 0 2px 8px 0 rgba(17, 24, 39, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.5)'
+                  }}
+                >
+                  {/* Top edge highlight */}
+                  <div 
+                    className="pointer-events-none absolute top-[2px] left-[10%] right-[10%] h-[1px]"
+                    style={{
+                      background: 'linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%)',
+                    }}
+                  />
+                  {/* Main glass reflection */}
+                  <div 
+                    className="pointer-events-none absolute inset-0 rounded-[inherit]"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.4) 100%)',
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+                  {/* Secondary reflection layer */}
+                  <div 
+                    className="pointer-events-none absolute inset-0 rounded-[inherit]"
+                    style={{
+                      background: 'radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%)',
+                      mixBlendMode: 'soft-light'
+                    }}
+                  />
+                  {/* Glass texture noise */}
+                  <div 
+                    className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-30"
+                    style={{
+                      backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
+                      mixBlendMode: 'overlay'
+                    }}
+                  />
+                  {/* Frosted glass inset shadows */}
+                  <div 
+                    className="pointer-events-none absolute inset-0 rounded-[inherit]"
+                    style={{
+                      boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 0 rgba(255, 255, 255, 0.2), inset 1px 0 0 0 rgba(255, 255, 255, 0.3), inset -1px 0 0 0 rgba(255, 255, 255, 0.3)'
+                    }}
+                  />
+                  <div className="relative z-10 w-full h-full">
+                    <IntelligenceAnimation />
+                  </div>
                 </div>
               </div>
             </TabsContent>

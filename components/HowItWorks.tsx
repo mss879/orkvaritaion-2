@@ -97,13 +97,33 @@ export default function HowItWorks() {
 
       <div className="flex flex-col gap-10">
         {steps.map((step, index) => (
-          <ScrollAnimationWrapper 
+          <div
             key={index}
-            style={{ top: `calc(120px + ${index * 20}px)` }}
-            className={`sticky relative bg-gradient-to-br from-[#E86233] to-[#2B1209] rounded-3xl p-6 flex flex-col gap-10 sm:p-12 sm:gap-12 md:items-center shadow-xl transition-all duration-500 overflow-hidden will-change-transform ${
+            className={`relative rounded-3xl p-6 flex flex-col gap-10 sm:p-12 sm:gap-12 md:items-center transition-all duration-500 border border-white/60 [contain:layout_style] ${
               index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'
             }`}
+            style={{
+              background: 'linear-gradient(135deg, #E86233 0%, #2B1209 100%)',
+              boxShadow: '0 8px 32px 0 rgba(17, 24, 39, 0.12), 0 2px 8px 0 rgba(17, 24, 39, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.3)',
+              transform: 'translateZ(0)'
+            }}
           >
+            {/* Consolidated glass overlay with reflection */}
+            <div 
+              className="pointer-events-none absolute inset-0 rounded-[inherit]"
+              style={{
+                background: 'radial-gradient(92.09% 124.47% at 50% 99.24%, rgba(221, 226, 238, 0.15) 58.91%, rgba(187, 197, 221, 0.15) 100%), linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%)',
+                mixBlendMode: 'overlay'
+              }}
+            />
+            
+            {/* Top edge highlight */}
+            <div 
+              className="pointer-events-none absolute top-[2px] left-[10%] right-[10%] h-[1px]"
+              style={{
+                background: 'linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%)',
+              }}
+            />
             
             <div className="relative z-10 md:w-1/2 lg:w-[45%]">
               <h3 className="text-2xl font-bold text-white mb-6">{step.title}</h3>
@@ -118,11 +138,12 @@ export default function HowItWorks() {
             </div>
             <div className="relative z-10 md:w-1/2 lg:w-[55%] flex items-center">
               <div
-                className={`relative w-full max-w-lg overflow-hidden rounded-xl lg:rounded-3xl border border-white/20 bg-white/10 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.2)] ${
+                className={`relative w-full max-w-lg overflow-hidden rounded-xl lg:rounded-3xl border border-white/20 bg-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.2)] [contain:layout_paint] ${
                   index % 2 === 1 ? 'md:mr-auto' : 'md:ml-auto'
                 }`}
+                style={{ transform: 'translateZ(0)' }}
               >
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent z-20" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-transparent" />
 
                 {step.Animation ? (
                   <step.Animation />
@@ -139,7 +160,7 @@ export default function HowItWorks() {
                 )}
               </div>
             </div>
-          </ScrollAnimationWrapper>
+          </div>
         ))}
       </div>
       </div>
