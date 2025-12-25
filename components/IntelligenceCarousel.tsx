@@ -293,9 +293,41 @@ export default function IntelligenceCarousel() {
           </ScrollAnimationWrapper>
 
           <ScrollAnimationWrapper className="mt-12 text-center">
-            <button className="inline-flex items-center justify-center rounded-2xl bg-[#DD3B2F] text-white font-bold px-8 py-5 text-base sm:text-lg hover:opacity-90 transition-opacity">
-              Connect and try our intelligence layer
-              <span className="ml-2 uppercase">FOR FREE</span>
+            <button 
+              className="relative inline-flex items-center justify-center rounded-2xl text-white font-bold px-8 py-5 text-base sm:text-lg border border-white/60 overflow-hidden group"
+              style={{
+                background: 'linear-gradient(135deg, #E86233 0%, #DD3B2F 100%)',
+                backdropFilter: 'blur(20px) saturate(180%)',
+                boxShadow: '0 8px 32px 0 rgba(221, 59, 47, 0.3), 0 2px 8px 0 rgba(221, 59, 47, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.5)',
+                transform: 'translateZ(0)'
+              }}
+            >
+              {/* Top edge highlight */}
+              <div 
+                className="pointer-events-none absolute top-[2px] left-[10%] right-[10%] h-[1px]"
+                style={{
+                  background: 'linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%)',
+                }}
+              />
+              {/* Glass reflection */}
+              <div 
+                className="pointer-events-none absolute inset-0 rounded-[inherit]"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%)',
+                  mixBlendMode: 'overlay'
+                }}
+              />
+              {/* Inset shadows */}
+              <div 
+                className="pointer-events-none absolute inset-0 rounded-[inherit]"
+                style={{
+                  boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 0 rgba(255, 255, 255, 0.15)'
+                }}
+              />
+              <span className="relative z-10">
+                Connect and try our intelligence layer
+                <span className="ml-2 uppercase">FOR FREE</span>
+              </span>
             </button>
             <p className="mt-3 text-sm sm:text-base text-gray-600">
               All numbers update from your live data once you connect.

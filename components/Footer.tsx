@@ -41,9 +41,6 @@ const Footer = () => {
       <div className="relative z-10 mx-auto max-w-6xl px-4">
         {/* CTA Section */}
         <div className="flex flex-col items-start text-left mb-20">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 mb-6">
-            <span className="text-xs font-bold text-neutral-900 uppercase tracking-wide">Join the AI Revolution</span>
-          </div>
           <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight leading-tight">
             Ready to start your<br />
             AI journey with us?

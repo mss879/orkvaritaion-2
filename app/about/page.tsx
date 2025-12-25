@@ -320,9 +320,6 @@ export default function AboutPage() {
                 Request a Demo
               </button>
             </div>
-            <p className="mt-8 text-gray-500 font-medium">
-              Join the marketers turning 2 weeks of work into 2 hours.
-            </p>
           </ScrollAnimationWrapper>
         </div>
       </section>
