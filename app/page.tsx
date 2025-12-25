@@ -212,35 +212,13 @@ export default function Home() {
           <ScrollAnimationWrapper className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12">
             <div className="max-w-2xl">
               <h3 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
-                <span className="relative inline-block h-[1.15em] overflow-hidden align-baseline leading-none">
-                  <span className="block animate-category-rotate leading-none">
-                    <span className="block h-[1.15em] leading-none whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
-                      Fashion &amp; apparel{' '}
-                      <span className="text-orkestrate-pulse">AI Model</span>
-                    </span>
-                    <span className="block h-[1.15em] leading-none whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
-                      Beauty &amp; skincare{' '}
-                      <span className="text-orkestrate-pulse">AI Model</span>
-                    </span>
-                    <span className="block h-[1.15em] leading-none whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
-                      Home &amp; lifestyle{' '}
-                      <span className="text-orkestrate-pulse">AI Model</span>
-                    </span>
-                    <span className="block h-[1.15em] leading-none whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
-                      Fashion &amp; apparel{' '}
-                      <span className="text-orkestrate-pulse">AI Model</span>
-                    </span>
-                  </span>
-                </span>
+                Select your category
               </h3>
             </div>
             <div className="max-w-md md:text-right">
               <p className="text-lg text-gray-500 font-medium">
                 Category Based AI Models that know your industry's Ins &amp; Outs
               </p>
-              <a href="#" className="inline-flex items-center gap-2 text-orkestrate-pulse font-semibold mt-2 hover:gap-3 transition-all">
-                View all 40+ categories <ArrowRight className="h-4 w-4" />
-              </a>
             </div>
           </ScrollAnimationWrapper>
 

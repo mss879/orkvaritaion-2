@@ -129,7 +129,10 @@ const Card = memo(function Card({
             <span className="text-xl font-medium text-gray-400">{category.number}</span>
           )}
 
-          <div className="space-y-3 relative z-10 min-w-0 overflow-hidden">
+          <div className={cn(
+            "relative z-10 min-w-0 overflow-hidden",
+            isActive ? "space-y-3" : "flex items-center justify-center h-full"
+          )}>
             {isActive ? (
               <>
                 <h3
@@ -145,25 +148,14 @@ const Card = memo(function Card({
                 </p>
               </>
             ) : (
-              <div className="flex items-start justify-between gap-4 min-w-0">
-                <h3
-                  className={cn(
-                    'font-bold text-gray-900 leading-tight transition-all duration-300 break-normal [hyphens:none] overflow-hidden',
-                    'text-xl md:text-2xl [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]'
-                  )}
-                >
-                  {category.title}
-                </h3>
-                <div className="relative w-14 h-14 rounded-2xl overflow-hidden border border-white/60 bg-white/50 backdrop-blur-sm shrink-0">
-                  <Image
-                    src={category.image}
-                    alt={category.title}
-                    fill
-                    className="object-contain p-2"
-                    sizes="56px"
-                  />
-                </div>
-              </div>
+              <h3
+                className={cn(
+                  'font-bold text-gray-900 leading-tight transition-all duration-300 break-normal [hyphens:none] overflow-hidden text-center',
+                  'text-xl md:text-2xl [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]'
+                )}
+              >
+                {category.title}
+              </h3>
             )}
           </div>
         </div>
@@ -236,6 +228,26 @@ export default function CategoryCards() {
           onActivate={onActivate}
         />
       ))}
+      
+      {/* View all link as 4th item in flex row */}
+      <div className="relative rounded-3xl p-6 md:p-8 border border-white/60 flex items-center justify-center flex-1 min-w-0"
+        style={{
+          background: 'radial-gradient(92.09% 124.47% at 50% 99.24%, rgba(221, 226, 238, 0.40) 58.91%, rgba(187, 197, 221, 0.40) 100%)',
+          backdropFilter: 'blur(20px) saturate(180%)',
+          boxShadow: '0 8px 32px 0 rgba(17, 24, 39, 0.12), 0 2px 8px 0 rgba(17, 24, 39, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.5)',
+          flexGrow: 1,
+          flexShrink: 1,
+          flexBasis: 0
+        }}
+      >
+        <a href="#" className="flex flex-col items-center gap-3 text-center group">
+          <span className="text-xl md:text-2xl font-bold text-gray-900">Select your</span>
+          <span className="text-3xl md:text-4xl font-bold text-orkestrate-pulse">category</span>
+          <svg className="h-6 w-6 text-orkestrate-pulse transition-transform group-hover:translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+      </div>
     </div>
   );
 }
