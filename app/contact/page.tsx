@@ -206,11 +206,11 @@ export default function ContactPage() {
                                     <SelectValue placeholder="Select monthly active users" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value="Less than 50,000">Less than 50,000</SelectItem>
-                                    <SelectItem value="50-100">50-100</SelectItem>
-                                    <SelectItem value="100-200">100-200</SelectItem>
-                                    <SelectItem value="200-400">200-400</SelectItem>
-                                    <SelectItem value="400+">400+</SelectItem>
+                                    <SelectItem value="Less than 50K">Less than 50K</SelectItem>
+                                    <SelectItem value="50K-100K">50K-100K</SelectItem>
+                                    <SelectItem value="100K-200K">100K-200K</SelectItem>
+                                    <SelectItem value="200K-400K">200K-400K</SelectItem>
+                                    <SelectItem value="400K+">400K+</SelectItem>
                                 </SelectContent>
                             </Select>
                         </div>
