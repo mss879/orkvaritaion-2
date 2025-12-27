@@ -19,18 +19,23 @@ import Preloader from '@/components/Preloader';
 // Lazy load heavy components for better performance
 const HowItWorks = dynamic(() => import('@/components/HowItWorks'), {
   loading: () => <div className="min-h-[600px] bg-white" aria-label="Loading..." />,
+  ssr: true,
 });
 const ProductSection = dynamic(() => import('@/components/ProductSection'), {
   loading: () => <div className="min-h-[600px] bg-white" aria-label="Loading..." />,
+  ssr: true,
 });
 const Integrations = dynamic(() => import('@/components/Integrations'), {
   loading: () => <div className="min-h-[500px] bg-white" aria-label="Loading..." />,
+  ssr: true,
 });
 const IntelligenceCarousel = dynamic(() => import('@/components/IntelligenceCarousel'), {
   loading: () => <div className="min-h-[400px]" aria-label="Loading..." />,
+  ssr: true,
 });
 const TypewriterTextarea = dynamic(() => import('@/components/TypewriterTextarea'), {
   ssr: false,
+  loading: () => <textarea className="flex w-full resize-none border-none bg-transparent px-2 py-2 text-[16px] leading-snug text-white/80 placeholder:text-white/50 focus-visible:outline-none md:text-base max-h-[max(35svh,5rem)]" placeholder="Ask Orkestrate to create a prototype..." style={{ height: '80px' }} readOnly />,
 });
 const AdvantageAnimation = dynamic(() => import('@/components/AdvantageAnimation'), {
   loading: () => <div className="w-full h-[500px] bg-white rounded-2xl border border-gray-100" aria-label="Loading..." />,
@@ -57,6 +62,8 @@ export default function Home() {
             loop
             muted
             playsInline
+            preload="metadata"
+            poster="/hero%20imge.png"
             className="absolute inset-0 h-full w-full object-cover"
           >
             <source src="/hero%20background.mp4" type="video/mp4" />

@@ -44,6 +44,7 @@ export default function Preloader() {
             fill
             className="object-contain"
             priority
+            fetchPriority="high"
           />
         </div>
         
