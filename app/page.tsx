@@ -14,6 +14,7 @@ import Footer from '@/components/Footer';
 import ScrollAnimationWrapper from '@/components/ScrollAnimationWrapper';
 
 import CategoryCards from '@/components/CategoryCards';
+import Preloader from '@/components/Preloader';
 
 // Lazy load heavy components for better performance
 const HowItWorks = dynamic(() => import('@/components/HowItWorks'), {
@@ -46,6 +47,7 @@ const QUERIES = [
 export default function Home() {
   return (
     <main className="bg-orange-50">
+      <Preloader />
       <FloatingNavbar />
 
       <section className="min-h-screen relative overflow-hidden flex items-center justify-center px-4 pt-24 pb-24" aria-labelledby="hero-heading">
