@@ -18,8 +18,8 @@ export default function Preloader() {
       setTimeout(() => {
         setIsVisible(false);
         document.body.style.overflow = "unset";
-      }, 500); // Fade out duration
-    }, 1300); // Display duration
+      }, 200); // Fade out duration
+    }, 1200); // Display duration
 
     return () => {
       clearTimeout(timer);
@@ -32,7 +32,7 @@ export default function Preloader() {
   return (
     <div
       className={cn(
-        "fixed inset-0 z-[9999] flex items-center justify-center bg-orange-50 transition-opacity duration-500 ease-in-out",
+        "fixed inset-0 z-[9999] flex items-center justify-center bg-orange-50 transition-opacity duration-200 ease-in-out",
         isFading ? "opacity-0" : "opacity-100"
       )}
     >
