@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useCallback, memo } from 'react';
 import { ArrowRight, Users, Zap, Eye, BellOff, ShoppingBag, Clock, Mail, MessageSquare } from 'lucide-react';
+import Link from 'next/link';
 import ScrollAnimationWrapper from './ScrollAnimationWrapper';
 
 type InsightCard = {
@@ -293,7 +294,8 @@ export default function IntelligenceCarousel() {
           </ScrollAnimationWrapper>
 
           <ScrollAnimationWrapper className="mt-12 text-center">
-            <button 
+            <Link
+              href="/contact"
               className="relative inline-flex items-center justify-center rounded-2xl text-white font-bold px-8 py-5 text-base sm:text-lg border border-white/60 overflow-hidden group"
               style={{
                 background: 'linear-gradient(135deg, #E86233 0%, #DD3B2F 100%)',
@@ -328,7 +330,7 @@ export default function IntelligenceCarousel() {
                 Connect and try our intelligence layer
                 <span className="ml-2 uppercase">FOR FREE</span>
               </span>
-            </button>
+            </Link>
             <p className="mt-3 text-sm sm:text-base text-gray-600">
               All numbers update from your live data once you connect.
             </p>

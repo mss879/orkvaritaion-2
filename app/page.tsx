@@ -75,16 +75,15 @@ export default function Home() {
             </div>
 
             <p className="text-gray-900/70 text-sm sm:text-base font-medium tracking-wide">
-              The Marketing Orchestration Platform
+              Marketing that scales revenue, not headcount
             </p>
 
             <h1 id="hero-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight lg:whitespace-nowrap">
-              Marketing made <span className="text-[#E0422D]">smarter</span> and{' '}
-              <span className="text-[#E0422D]">simple</span>
+              The AI Marketing Platform
             </h1>
 
             <p className="text-base sm:text-lg text-gray-900/70 font-medium max-w-2xl mx-auto">
-              Orchestrate your agents, channels, and data in one interface with Orkestrate intelligence.
+              Manage your agents, channels and data by chatting with AI
             </p>
           </ScrollAnimationWrapper>
 
@@ -212,7 +211,8 @@ export default function Home() {
           <ScrollAnimationWrapper className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12">
             <div className="max-w-2xl">
               <h3 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
-                Select your category
+                <span className="block">Select from</span>
+                <span className="block">40+ Categories</span>
               </h3>
             </div>
             <div className="max-w-md md:text-right">

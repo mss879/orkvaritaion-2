@@ -1,21 +1,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Twitter, Linkedin, Github, Instagram, Mail, Phone } from 'lucide-react';
+import { Linkedin, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/#about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ];
 
   const socialLinks = [
-    { href: 'https://twitter.com', label: 'Twitter', Icon: Twitter },
     { href: 'https://www.linkedin.com/company/orkestrateco', label: 'LinkedIn', Icon: Linkedin },
-    { href: 'https://github.com', label: 'GitHub', Icon: Github },
-    { href: 'https://instagram.com', label: 'Instagram', Icon: Instagram },
   ];
 
   const legalLinks = [
@@ -47,13 +43,17 @@ const Footer = () => {
           </h2>
           <div className="flex flex-wrap gap-4">
             <Link 
-              href="/contact" 
+              href="https://calendar.app.google/bHLMbUhsobXQb8v2A" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-3.5 rounded-lg bg-[#2a1008] border border-white/10 text-white font-medium hover:bg-[#3a160b] transition-colors min-w-[140px] text-center shadow-lg shadow-orange-900/20"
             >
               Get Started
             </Link>
             <Link 
-              href="mailto:hello@orkestrate.com" 
+              href="https://calendar.app.google/bHLMbUhsobXQb8v2A" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-3.5 rounded-lg bg-white text-neutral-900 font-medium hover:bg-gray-100 transition-colors min-w-[140px] text-center"
             >
               Book a Demo
@@ -115,7 +115,16 @@ const Footer = () => {
                   </li>
                 ))}
                 {/* Additional links to match design density if needed */}
-                <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">Book Demo</Link></li>
+                <li>
+                  <Link
+                    href="https://calendar.app.google/bHLMbUhsobXQb8v2A"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white transition-colors text-sm"
+                  >
+                    Book Demo
+                  </Link>
+                </li>
               </ul>
             </div>
 

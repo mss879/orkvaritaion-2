@@ -240,9 +240,9 @@ export default function CategoryCards() {
           flexBasis: 0
         }}
       >
-        <a href="#" className="flex flex-col items-center gap-3 text-center group">
-          <span className="text-xl md:text-2xl font-bold text-gray-900">Select your</span>
-          <span className="text-3xl md:text-4xl font-bold text-orkestrate-pulse">category</span>
+        <a href="/contact" className="flex flex-col items-center gap-3 text-center group">
+          <span className="text-xl md:text-2xl font-bold text-gray-900">Select from</span>
+          <span className="text-3xl md:text-4xl font-bold text-orkestrate-pulse">40+ Categories</span>
           <svg className="h-6 w-6 text-orkestrate-pulse transition-transform group-hover:translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
