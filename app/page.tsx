@@ -78,7 +78,7 @@ export default function Home() {
               Marketing that scales revenue, not headcount
             </p>
 
-            <h1 id="hero-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight lg:whitespace-nowrap">
+            <h1 id="hero-heading" className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight lg:whitespace-nowrap">
               The AI Marketing Platform
             </h1>
 

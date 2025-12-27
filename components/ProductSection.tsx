@@ -25,19 +25,19 @@ export default function ProductSection() {
               
               <TabsTrigger 
                 value="integration"
-                className="relative z-10 rounded-full py-2 md:py-3 text-xs md:text-base font-semibold text-white/90 data-[state=active]:bg-white data-[state=active]:text-orkestrate-pulse data-[state=active]:shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300"
+                className="relative z-10 rounded-full py-2 md:py-3 text-sm md:text-base font-semibold text-white/90 data-[state=active]:bg-white data-[state=active]:text-orkestrate-pulse data-[state=active]:shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300"
               >
                 Integration
               </TabsTrigger>
               <TabsTrigger 
                 value="agents"
-                className="relative z-10 rounded-full py-2 md:py-3 text-xs md:text-base font-semibold text-white/90 data-[state=active]:bg-white data-[state=active]:text-orkestrate-pulse data-[state=active]:shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300"
+                className="relative z-10 rounded-full py-2 md:py-3 text-sm md:text-base font-semibold text-white/90 data-[state=active]:bg-white data-[state=active]:text-orkestrate-pulse data-[state=active]:shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300"
               >
                 Agents
               </TabsTrigger>
               <TabsTrigger 
                 value="intelligence"
-                className="relative z-10 rounded-full py-2 md:py-3 text-xs md:text-base font-semibold text-white/90 data-[state=active]:bg-white data-[state=active]:text-orkestrate-pulse data-[state=active]:shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300"
+                className="relative z-10 rounded-full py-2 md:py-3 text-sm md:text-base font-semibold text-white/90 data-[state=active]:bg-white data-[state=active]:text-orkestrate-pulse data-[state=active]:shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300"
               >
                 Intelligence
               </TabsTrigger>

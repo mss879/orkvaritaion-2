@@ -122,7 +122,7 @@ const Card = memo(function Card({
             'inset 0 1px 0 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 0 rgba(255, 255, 255, 0.2), inset 1px 0 0 0 rgba(255, 255, 255, 0.3), inset -1px 0 0 0 rgba(255, 255, 255, 0.3)'
         }}
       />
-      <div className="flex h-full gap-6 md:gap-8">
+      <div className="flex flex-col md:flex-row h-full gap-6 md:gap-8">
         {/* Text Content Column */}
         <div className="flex flex-col justify-between flex-1 min-w-0">
           {isActive && (
@@ -168,11 +168,11 @@ const Card = memo(function Card({
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
               transition={{ duration: 0.25, ease: 'easeOut' }}
-              className="relative h-full w-1/2 rounded-2xl overflow-hidden hidden md:block shrink-0"
+              className="relative h-64 md:h-full w-full md:w-1/2 rounded-2xl overflow-hidden block shrink-0"
               style={{ willChange: 'transform, opacity' }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-orange-100/50" />
-              <Image src={category.image} alt={category.title} fill className="object-contain p-4" />
+              <Image src={category.image} alt={category.title} fill className="object-contain p-4 pb-28 md:pb-4" />
 
               {/* Insight Overlay */}
               <motion.div
@@ -219,7 +219,7 @@ export default function CategoryCards() {
   const categoryList = useMemo(() => categories, []);
 
   return (
-    <div className="flex flex-col lg:flex-row gap-4 w-full h-[500px] lg:h-[400px]">
+    <div className="flex flex-col lg:flex-row gap-4 w-full h-[1000px] md:h-[500px] lg:h-[400px]">
       {categoryList.map((category) => (
         <Card
           key={category.id}
