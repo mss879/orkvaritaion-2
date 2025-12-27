@@ -1,17 +1,26 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { ChevronDown, Mail, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import Footer from '@/components/Footer';
 import ScrollAnimationWrapper from '@/components/ScrollAnimationWrapper';
 import GlassPanel from '@/components/GlassPanel';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '@/components/ui/select';
 
 export default function ContactPage() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitState, setSubmitState] = useState<'idle' | 'success' | 'error'>('idle');
     const [submitMessage, setSubmitMessage] = useState<string>('');
+    const [monthlyActiveUsers, setMonthlyActiveUsers] = useState<string>('');
+    const [annualRevenue, setAnnualRevenue] = useState<string>('');
 
     const statusText = useMemo(() => {
         if (submitState === 'success') return submitMessage || 'Thanks — we received your message.';
@@ -187,40 +196,40 @@ export default function ContactPage() {
                                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all bg-white placeholder:text-gray-400"
                                 />
                             </div>
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-neutral-900">Monthly Active Users</label>
-                                <input
-                                    name="monthly_active_users"
-                                    type="text"
-                                    inputMode="numeric"
-                                    placeholder="e.g. 25000"
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all bg-white placeholder:text-gray-400"
-                                />
-                            </div>
+                        </div>
+
+                        <div className="space-y-2">
+                            <label className="text-sm font-medium text-neutral-900">Monthly Active Users</label>
+                            <input type="hidden" name="monthly_active_users" value={monthlyActiveUsers} />
+                            <Select value={monthlyActiveUsers} onValueChange={setMonthlyActiveUsers}>
+                                <SelectTrigger className="h-auto w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-neutral-900 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500">
+                                    <SelectValue placeholder="Select monthly active users" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="Less than 50,000">Less than 50,000</SelectItem>
+                                    <SelectItem value="50-100">50-100</SelectItem>
+                                    <SelectItem value="100-200">100-200</SelectItem>
+                                    <SelectItem value="200-400">200-400</SelectItem>
+                                    <SelectItem value="400+">400+</SelectItem>
+                                </SelectContent>
+                            </Select>
                         </div>
 
                         <div className="space-y-2">
                             <label className="text-sm font-medium text-neutral-900">Annual Revenue</label>
-                            <div className="relative">
-                                <select
-                                    name="annual_revenue"
-                                    defaultValue=""
-                                    className="w-full appearance-none px-4 py-3 pr-10 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all bg-white text-neutral-900"
-                                >
-                                    <option value="" disabled>
-                                        Select annual revenue
-                                    </option>
-                                    <option value="Less than 1M a year">Less than 1M a year</option>
-                                    <option value="1-5M">1-5M</option>
-                                    <option value="5-50M">5-50M</option>
-                                    <option value="50-100M">50-100M</option>
-                                    <option value="100M+">100M+</option>
-                                </select>
-                                <ChevronDown
-                                    className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
-                                    aria-hidden="true"
-                                />
-                            </div>
+                            <input type="hidden" name="annual_revenue" value={annualRevenue} />
+                            <Select value={annualRevenue} onValueChange={setAnnualRevenue}>
+                                <SelectTrigger className="h-auto w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-neutral-900 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500">
+                                    <SelectValue placeholder="Select annual revenue" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="Less than 1M a year">Less than 1M a year</SelectItem>
+                                    <SelectItem value="1-5M">1-5M</SelectItem>
+                                    <SelectItem value="5-50M">5-50M</SelectItem>
+                                    <SelectItem value="50-100M">50-100M</SelectItem>
+                                    <SelectItem value="100M+">100M+</SelectItem>
+                                </SelectContent>
+                            </Select>
                         </div>
 
                         <div className="space-y-2">
