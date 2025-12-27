@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,28 +25,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-}
-
-/* Mobile performance optimizations */
-@media (max-width: 768px) {
-  /* Reduce paint complexity on mobile */
-  .backdrop-blur-2xl {
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
-  
-  /* Content visibility for below-fold sections */
-  section:not(:first-of-type) {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 600px;
-  }
-}
-
-/* GPU acceleration for animated elements */
-.animate-pulse,
-[class*="animate-"] {
-  will-change: opacity, transform;
-  transform: translateZ(0);
 }
 
 @layer base {
@@ -386,25 +366,5 @@ body {
 
   .wf-logo-track--offset {
     animation-delay: -17s;
-  }
-
-  /* Reduce glass effect complexity on mobile for better performance */
-  .glass-panel,
-  .glass-panel-warm,
-  .glass-overlay-on-color {
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
-
-  .glass-panel-inner {
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
-
-  /* Reduce animation complexity on mobile */
-  @media (prefers-reduced-motion: no-preference) {
-    .wf-logo-track {
-      animation-duration: 40s;
-    }
   }
 }
