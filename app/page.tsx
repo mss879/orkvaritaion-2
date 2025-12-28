@@ -41,7 +41,7 @@ const QUERIES = [
   'Ask Orkestrate to help create a Black Friday campaign',
   'Ask Orkestrate to suggest journeys to reduce churn from BFCM',
   'Ask Orkestrate to create a Christmas wish-list campaign',
-  'Ask Orkestrate to pause the Christmas campaign and run a 20 A/B test variants',
+  'Ask Orkestrate to show whats missing in my existing flows',
 ];
 
 export default function Home() {
@@ -233,7 +233,7 @@ export default function Home() {
               Choose from over 40 Unique Category Models that suit your brand
             </p>
             <p className="mt-3 text-gray-500">
-              You would never hire a marketer from a random niche. Orkestrate is set up for your category.
+              You would never hire a marketer from a random niche. Orkestrate is set up for your category, giving your tools context
             </p>
           </ScrollAnimationWrapper>
         </div>

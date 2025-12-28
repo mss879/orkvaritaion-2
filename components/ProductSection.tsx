@@ -13,7 +13,7 @@ export default function ProductSection() {
             AI agents built to accelerate your content supply chain
           </h2>
           <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-            Orchestrate your entire marketing workflow with intelligent agents that learn and adapt.
+            Orchestrate your entire marketing workflow with intelligent agents that learn and adapt
           </p>
         </div>
 
@@ -54,7 +54,7 @@ export default function ProductSection() {
                       Works where you work
                     </h3>
                     <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-                      Multi-Model AI: Orchestrate your agents, channels, and data in one interface with continuous intelligence.
+                      Multi-Model AI: Orchestrate your agents, channels, and data in one interface with continuous intelligence
                     </p>
                   </div>
                   
@@ -143,7 +143,7 @@ export default function ProductSection() {
                       Always-on execution that ships work daily
                     </h3>
                     <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-                      Deploy specialized agents that work 24/7 to optimize every aspect of your marketing campaigns.
+                      Deploy specialized agents that work 24/7 to optimize every aspect of your marketing campaigns
                     </p>
                   </div>
                   
@@ -237,7 +237,7 @@ export default function ProductSection() {
                       Category-native intelligence that compounds
                     </h3>
                     <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-                      Built-in logic and memory that gets smarter with every campaign you run.
+                      Built-in logic and memory that gets smarter with every campaign you run
                     </p>
                   </div>
                   

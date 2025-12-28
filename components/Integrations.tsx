@@ -22,7 +22,7 @@ const Integrations = () => {
             </h2>
 
             <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
-              Orkestrate integrates effortlessly with your existing tools. Connect to over 2,000+ apps for fast onboarding and efficient operations.
+              Orkestrate integrates effortlessly with your existing tools. Connect to over 2,000+ apps for fast onboarding and efficient operations
             </p>
           </div>
         </div>

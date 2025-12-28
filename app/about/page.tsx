@@ -111,7 +111,7 @@ export default function AboutPage() {
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Quality</h3>
               <p className="text-gray-600 leading-relaxed">
                 We strive to achieve the highest standards of excellence in every
-                component of our work.
+                component of our work
               </p>
             </ScrollAnimationWrapper>
 
@@ -131,7 +131,7 @@ export default function AboutPage() {
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Ownership</h3>
               <p className="text-gray-600 leading-relaxed">
                 The best companies are built by teams who take initiative and are
-                willing to go above & beyond their job description.
+                willing to go above & beyond their job description
               </p>
             </ScrollAnimationWrapper>
 
@@ -151,7 +151,7 @@ export default function AboutPage() {
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Transparency</h3>
               <p className="text-gray-600 leading-relaxed">
                 Trust is built on transparency. We believe in clear, honest
-                communication.
+                communication
               </p>
             </ScrollAnimationWrapper>
 
@@ -173,7 +173,7 @@ export default function AboutPage() {
               </h3>
               <p className="text-gray-600 leading-relaxed">
                 Our North Star — Orkestrate's success is measured by the success
-                of our customers.
+                of our customers
               </p>
             </ScrollAnimationWrapper>
 
@@ -193,7 +193,7 @@ export default function AboutPage() {
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Velocity</h3>
               <p className="text-gray-600 leading-relaxed">
                 We believe rapid execution and decision-making are essential to
-                maintaining a competitive edge.
+                maintaining a competitive edge
               </p>
             </ScrollAnimationWrapper>
           </div>
@@ -221,12 +221,12 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-bold">The Old Way (Execution)</h3>
               </div>
               <div className="space-y-4 text-white/80 text-lg">
-                <p>You define the steps.</p>
-                <p>You pull the data.</p>
-                <p>You write the copy.</p>
-                <p>You test the links.</p>
+                <p>You define the steps</p>
+                <p>You pull the data</p>
+                <p>You write the copy</p>
+                <p>You test the links</p>
                 <div className="pt-4 border-t border-white/20">
-                  <p className="font-bold text-white">Result: 18 hours for one campaign.</p>
+                  <p className="font-bold text-white">Result: 18 hours for one campaign</p>
                 </div>
               </div>
             </ScrollAnimationWrapper>
@@ -239,13 +239,13 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-bold">The Orkestrate Way</h3>
               </div>
               <div className="space-y-4 text-gray-700 text-lg">
-                <p>You define the goal.</p>
-                <p>Our swarm of agents understands your brand.</p>
-                <p>Studies your customer data.</p>
-                <p>Executes the best path forward.</p>
+                <p>You define the goal</p>
+                <p>Our swarm of agents understands your brand</p>
+                <p>Studies your customer data</p>
+                <p>Executes the best path forward</p>
                 <div className="pt-4 border-t border-orange-100">
                   <p className="font-bold text-orange-600">
-                    Result: 2.5 hours for the same campaign.
+                    Result: 2.5 hours for the same campaign
                   </p>
                 </div>
               </div>
@@ -264,7 +264,7 @@ export default function AboutPage() {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Traditional automation relies on "If This, Then That" rules that
               break the moment consumer behavior changes. Orkestrate is
-              different.
+              different
             </p>
           </ScrollAnimationWrapper>
 
@@ -272,17 +272,17 @@ export default function AboutPage() {
             {[
               {
                 title: "Hyper-Targeting Models",
-                desc: "Find the right audience without manual segmentation.",
+                desc: "Find the right audience without manual segmentation",
                 icon: Users,
               },
               {
                 title: "Always-On Sentinels",
-                desc: "Monitor your data 24/7 for risks and opportunities.",
+                desc: "Monitor your data 24/7 for risks and opportunities",
                 icon: Globe,
               },
               {
                 title: "Category & Brand Models",
-                desc: "Understand the nuance of your specific industry (e.g., selling furniture vs. selling t-shirts).",
+                desc: "Understand the nuance of your specific industry (e.g., selling furniture vs. selling t-shirts)",
                 icon: Layers,
               },
             ].map((item, i) => (
@@ -310,7 +310,7 @@ export default function AboutPage() {
               Ready to <span className="text-orange-600">10x your output?</span>
             </h2>
             <p className="text-2xl text-gray-600 mb-12 font-medium">
-              Stop managing tools. Start orchestrating growth.
+              Stop managing tools. Start orchestrating growth
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button className="px-8 py-4 bg-gray-900 text-white rounded-xl font-bold text-lg hover:bg-gray-800 transition-colors w-full sm:w-auto">

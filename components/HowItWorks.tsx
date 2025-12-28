@@ -31,8 +31,8 @@ const steps = [
     title: "Connect your store and campaigns",
     Animation: ConnectStoreAnimation,
     items: [
-      "Plug in Shopify plus your existing tools like Klaviyo, Attentive or Braze.",
-      "Orkestrate ingests orders, browsing, campaigns and basic catalog data so it can see what you are already doing and where revenue is leaking."
+      "Plug in Shopify plus your existing tools like Klaviyo, Attentive or Braze",
+      "Orkestrate ingests orders, browsing, campaigns and basic catalog data so it can see what you are already doing and where revenue is leaking"
     ],
     icon: Plug,
     imageSrc: '/work%20iamge%201.png',
@@ -42,8 +42,8 @@ const steps = [
     title: "Choose your category profile",
     Animation: ChooseCategoryAnimation,
     items: [
-      "Pick the category that matches your brand, for example beauty, fashion, home or food.",
-      "Category models bring instant pattern recognition for your niche so you are not waiting months for the system to learn from scratch."
+      "Pick the category that matches your brand, for example beauty, fashion, home or food",
+      "Category models bring instant pattern recognition for your niche so you are not waiting months for the system to learn from scratch"
     ],
     icon: Layers,
     imageSrc: '/work%20iamge%202.png',
@@ -53,8 +53,8 @@ const steps = [
     title: "Start chatting with your Orkestrator",
     Animation: ChatOrkestratorAnimation,
     items: [
-      "Describe your goals in simple language. e.g. \"Recover more lapsing VIPs\" or \"Launch a new product to high intent browsers.\"",
-      "Orkestrate turns that into cohorts, journeys and experiments across your channels."
+      "Describe your goals in simple language. e.g. \"Recover more lapsing VIPs\" or \"Launch a new product to high intent browsers\"",
+      "Orkestrate turns that into cohorts, journeys and experiments across your channels"
     ],
     icon: MessageSquare,
     imageSrc: '/work%20iamge%203.png',
@@ -64,8 +64,8 @@ const steps = [
     title: "Approve plays and launch",
     Animation: ApproveLaunchAnimation,
     items: [
-      "Review the proposed plays in plain English. Tweak guardrails, budget and tone where needed.",
-      "Approve and Orkestrate's agents create and schedule the actual campaigns in your connected tools."
+      "Review the proposed plays in plain English. Tweak guardrails, budget and tone where needed",
+      "Approve and Orkestrate's agents create and schedule the actual campaigns in your connected tools"
     ],
     icon: CheckCircle2,
     imageSrc: '/work%20iamge%204.png',
@@ -75,8 +75,8 @@ const steps = [
     title: "Learn, optimize and scale",
     Animation: LearnOptimizeScaleAnimation,
     items: [
-      "Review the proposed plays in plain English. Tweak guardrails, budget and tone where needed.",
-      "Over time you run far more campaigns and experiments with the same team while keeping performance and customer experience improving week after week."
+      "Agents constantly adapts your campaign to hit the target outcome, finds leaks, risks and opportunities, pushing what works and stalling what doesn't",
+      "When opportunities surface simply click launch to capture or ask for more info"
     ],
     icon: TrendingUp,
     imageSrc: '/work%20iamge%205.png',
@@ -91,7 +91,7 @@ export default function HowItWorks() {
       <ScrollAnimationWrapper className="text-center mb-12">
         <h2 id="how-it-works-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-4">How Orkestrate works</h2>
         <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-          Turn a small team into a high output marketing engine in 5 automated steps.
+          Turn a lean team into a high output marketing engine in 5 steps
         </p>
       </ScrollAnimationWrapper>
 
