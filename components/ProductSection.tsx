@@ -10,7 +10,7 @@ export default function ProductSection() {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
-            AI agents built to accelerate your content supply chain
+            AI Agents built for DTC Marketers
           </h2>
           <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
             Orchestrate your entire marketing workflow with intelligent agents that learn and adapt
