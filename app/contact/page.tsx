@@ -19,8 +19,66 @@ export default function ContactPage() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitState, setSubmitState] = useState<'idle' | 'success' | 'error'>('idle');
     const [submitMessage, setSubmitMessage] = useState<string>('');
+
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [category, setCategory] = useState('');
     const [monthlyActiveUsers, setMonthlyActiveUsers] = useState<string>('');
     const [annualRevenue, setAnnualRevenue] = useState<string>('');
+    const [message, setMessage] = useState('');
+    const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+
+    const emailValidation = useMemo(() => {
+        const value = email.trim().toLowerCase();
+        if (!value) return { ok: false, reason: 'Email is required.' } as const;
+        const atIndex = value.lastIndexOf('@');
+        if (atIndex <= 0 || atIndex === value.length - 1) {
+            return { ok: false, reason: 'Enter a valid email address.' } as const;
+        }
+        const domain = value.slice(atIndex + 1);
+        if (!domain.includes('.')) {
+            return { ok: false, reason: 'Enter a valid email address.' } as const;
+        }
+        if (domain === 'gmail.com' || domain === 'googlemail.com') {
+            return { ok: false, reason: 'Please use a company email (no Gmail).' } as const;
+        }
+        return { ok: true } as const;
+    }, [email]);
+
+    const isFormComplete = useMemo(() => {
+        return [
+            firstName,
+            lastName,
+            email,
+            phoneNumber,
+            category,
+            monthlyActiveUsers,
+            annualRevenue,
+            message,
+        ].every((value) => String(value).trim().length > 0);
+    }, [
+        annualRevenue,
+        category,
+        email,
+        firstName,
+        lastName,
+        message,
+        monthlyActiveUsers,
+        phoneNumber,
+    ]);
+
+    const canSubmit = !isSubmitting && isFormComplete && emailValidation.ok;
+
+    const inputClassName = (hasError: boolean) => {
+        const base =
+            'w-full px-4 py-3 rounded-xl border focus:outline-none focus:ring-2 transition-all bg-white placeholder:text-gray-400';
+        if (hasError) {
+            return `${base} border-red-300 focus:ring-red-500/20 focus:border-red-500`;
+        }
+        return `${base} border-gray-200 focus:ring-orange-500/20 focus:border-orange-500`;
+    };
 
     const statusText = useMemo(() => {
         if (submitState === 'success') return submitMessage || 'Thanks — we received your message.';
@@ -33,21 +91,43 @@ export default function ContactPage() {
         if (isSubmitting) return;
 
         const form = event.currentTarget;
+
+        const nextErrors: Record<string, string> = {};
+        if (!firstName.trim()) nextErrors.first_name = 'First name is required.';
+        if (!lastName.trim()) nextErrors.last_name = 'Last name is required.';
+        if (!email.trim()) nextErrors.email = 'Email is required.';
+        if (email.trim() && !emailValidation.ok) nextErrors.email = emailValidation.reason;
+        if (!phoneNumber.trim()) nextErrors.phone_number = 'Phone number is required.';
+        if (!category.trim()) nextErrors.category = 'Category is required.';
+        if (!monthlyActiveUsers.trim()) nextErrors.monthly_active_users = 'Monthly active users is required.';
+        if (!annualRevenue.trim()) nextErrors.annual_revenue = 'Annual revenue is required.';
+        if (!message.trim()) nextErrors.message = 'Message is required.';
+
+        setFieldErrors(nextErrors);
+        if (Object.keys(nextErrors).length > 0) {
+            setSubmitState('error');
+            setSubmitMessage(
+                nextErrors.email === 'Please use a company email (no Gmail).'
+                    ? 'Please use a company email address (no Gmail).'
+                    : 'Please fill in all the fields before submitting.'
+            );
+            return;
+        }
+
         setIsSubmitting(true);
         setSubmitState('idle');
         setSubmitMessage('');
 
         try {
-            const formData = new FormData(form);
             const payload = {
-                first_name: String(formData.get('first_name') ?? '').trim(),
-                last_name: String(formData.get('last_name') ?? '').trim(),
-                email: String(formData.get('email') ?? '').trim(),
-                phone_number: String(formData.get('phone_number') ?? '').trim(),
-                category: String(formData.get('category') ?? '').trim(),
-                monthly_active_users: String(formData.get('monthly_active_users') ?? '').trim(),
-                annual_revenue: String(formData.get('annual_revenue') ?? '').trim(),
-                message: String(formData.get('message') ?? '').trim(),
+                first_name: firstName.trim(),
+                last_name: lastName.trim(),
+                email: email.trim(),
+                phone_number: phoneNumber.trim(),
+                category: category.trim(),
+                monthly_active_users: monthlyActiveUsers.trim(),
+                annual_revenue: annualRevenue.trim(),
+                message: message.trim(),
             };
 
             // Send email using EmailJS
@@ -61,6 +141,15 @@ export default function ContactPage() {
             setSubmitState('success');
             setSubmitMessage('Thanks — we’ll get back to you shortly.');
             form.reset();
+            setFirstName('');
+            setLastName('');
+            setEmail('');
+            setPhoneNumber('');
+            setCategory('');
+            setMonthlyActiveUsers('');
+            setAnnualRevenue('');
+            setMessage('');
+            setFieldErrors({});
         } catch (error) {
             console.error('EmailJS Error:', error);
             setSubmitState('error');
@@ -149,7 +238,13 @@ export default function ContactPage() {
                                     type="text" 
                                     placeholder="First name" 
                                     required
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all bg-white placeholder:text-gray-400" 
+                                    value={firstName}
+                                    onChange={(e) => {
+                                        setFirstName(e.target.value);
+                                        if (fieldErrors.first_name) setFieldErrors((prev) => ({ ...prev, first_name: '' }));
+                                    }}
+                                    aria-invalid={Boolean(fieldErrors.first_name)}
+                                    className={inputClassName(Boolean(fieldErrors.first_name))}
                                 />
                             </div>
                             <div className="space-y-2">
@@ -159,7 +254,13 @@ export default function ContactPage() {
                                     type="text" 
                                     placeholder="Last name" 
                                     required
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all bg-white placeholder:text-gray-400" 
+                                    value={lastName}
+                                    onChange={(e) => {
+                                        setLastName(e.target.value);
+                                        if (fieldErrors.last_name) setFieldErrors((prev) => ({ ...prev, last_name: '' }));
+                                    }}
+                                    aria-invalid={Boolean(fieldErrors.last_name)}
+                                    className={inputClassName(Boolean(fieldErrors.last_name))}
                                 />
                             </div>
                         </div>
@@ -170,10 +271,23 @@ export default function ContactPage() {
                                 <input 
                                     name="email"
                                     type="email" 
-                                    placeholder="Your email" 
+                                    placeholder="you@company.com" 
                                     required
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all bg-white placeholder:text-gray-400" 
+                                    value={email}
+                                    onChange={(e) => {
+                                        setEmail(e.target.value);
+                                        if (fieldErrors.email) setFieldErrors((prev) => ({ ...prev, email: '' }));
+                                    }}
+                                    aria-invalid={Boolean(fieldErrors.email) || (email.trim().length > 0 && !emailValidation.ok)}
+                                    className={inputClassName(
+                                        Boolean(fieldErrors.email) || (email.trim().length > 0 && !emailValidation.ok)
+                                    )}
                                 />
+                                {email.trim().length > 0 && !emailValidation.ok ? (
+                                    <p className="text-sm text-red-600" role="alert">
+                                        {emailValidation.reason}
+                                    </p>
+                                ) : null}
                             </div>
                             <div className="space-y-2">
                                 <label className="text-sm font-medium text-neutral-900">Phone Number</label>
@@ -181,7 +295,14 @@ export default function ContactPage() {
                                     name="phone_number"
                                     type="tel" 
                                     placeholder="Your phone" 
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all bg-white placeholder:text-gray-400" 
+                                    required
+                                    value={phoneNumber}
+                                    onChange={(e) => {
+                                        setPhoneNumber(e.target.value);
+                                        if (fieldErrors.phone_number) setFieldErrors((prev) => ({ ...prev, phone_number: '' }));
+                                    }}
+                                    aria-invalid={Boolean(fieldErrors.phone_number)}
+                                    className={inputClassName(Boolean(fieldErrors.phone_number))}
                                 />
                             </div>
                         </div>
@@ -193,14 +314,30 @@ export default function ContactPage() {
                                     name="category"
                                     type="text"
                                     placeholder="e.g. Fashion"
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all bg-white placeholder:text-gray-400"
+                                    required
+                                    value={category}
+                                    onChange={(e) => {
+                                        setCategory(e.target.value);
+                                        if (fieldErrors.category) setFieldErrors((prev) => ({ ...prev, category: '' }));
+                                    }}
+                                    aria-invalid={Boolean(fieldErrors.category)}
+                                    className={inputClassName(Boolean(fieldErrors.category))}
                                 />
                             </div>
                         </div>
 
                         <div className="space-y-2">
                             <label className="text-sm font-medium text-neutral-900">Monthly Active Users</label>
-                            <input type="hidden" name="monthly_active_users" value={monthlyActiveUsers} />
+                            <input
+                                type="text"
+                                name="monthly_active_users"
+                                value={monthlyActiveUsers}
+                                readOnly
+                                required
+                                tabIndex={-1}
+                                aria-hidden="true"
+                                className="sr-only"
+                            />
                             <Select value={monthlyActiveUsers} onValueChange={setMonthlyActiveUsers}>
                                 <SelectTrigger className="h-auto w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-neutral-900 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500">
                                     <SelectValue placeholder="Select monthly active users" />
@@ -217,7 +354,16 @@ export default function ContactPage() {
 
                         <div className="space-y-2">
                             <label className="text-sm font-medium text-neutral-900">Annual Revenue</label>
-                            <input type="hidden" name="annual_revenue" value={annualRevenue} />
+                            <input
+                                type="text"
+                                name="annual_revenue"
+                                value={annualRevenue}
+                                readOnly
+                                required
+                                tabIndex={-1}
+                                aria-hidden="true"
+                                className="sr-only"
+                            />
                             <Select value={annualRevenue} onValueChange={setAnnualRevenue}>
                                 <SelectTrigger className="h-auto w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-neutral-900 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500">
                                     <SelectValue placeholder="Select annual revenue" />
@@ -239,13 +385,22 @@ export default function ContactPage() {
                                 placeholder="Write your message" 
                                 rows={4} 
                                 required
-                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all bg-white resize-none placeholder:text-gray-400" 
+                                value={message}
+                                onChange={(e) => {
+                                    setMessage(e.target.value);
+                                    if (fieldErrors.message) setFieldErrors((prev) => ({ ...prev, message: '' }));
+                                }}
+                                aria-invalid={Boolean(fieldErrors.message)}
+                                className={
+                                    inputClassName(Boolean(fieldErrors.message)) +
+                                    ' resize-none'
+                                }
                             />
                         </div>
 
                         <button 
                             type="submit" 
-                            disabled={isSubmitting}
+                            disabled={!canSubmit}
                             className="w-full py-4 rounded-xl bg-neutral-900 text-white font-semibold hover:bg-neutral-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:bg-neutral-900 disabled:hover:shadow-lg disabled:hover:translate-y-0"
                         >
                             {isSubmitting ? 'Submitting…' : 'Submit'}
