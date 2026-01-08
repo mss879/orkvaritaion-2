@@ -115,29 +115,6 @@ const ConnectionSequence = ({ isActive, cycle }: { isActive: boolean; cycle: num
                   animate={step >= 2 ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }}
                   transition={{ duration: 0.8, delay: i * 0.2 }}
                 />
-                
-                {/* Data Particles Flowing */}
-                {step === 2 && (
-                  <motion.circle
-                    r="3"
-                    fill="#f97316"
-                    initial={{ offsetDistance: "100%" }}
-                    animate={{ offsetDistance: "0%" }} // Move towards center
-                    style={{ 
-                      offsetPath: `path("M ${190 + x} ${190 + y} L 190 190")` // Simple linear path from outer to center
-                    }}
-                    transition={{ 
-                      duration: 1.5, 
-                      repeat: Infinity, 
-                      ease: "linear",
-                      delay: i * 0.3 
-                    }}
-                  />
-                )}
-                {/* Note: offsetPath support in Framer Motion/SVG can be tricky with simple lines. 
-                    Alternative: Animate a div along the line. 
-                    Let's use a simpler approach for particles if SVG paths are complex.
-                */}
               </svg>
 
               {/* Tool Icon Card */}
