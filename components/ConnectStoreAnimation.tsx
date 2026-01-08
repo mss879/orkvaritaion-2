@@ -102,7 +102,7 @@ const ConnectionSequence = ({ isActive, cycle }: { isActive: boolean; cycle: num
           return (
             <React.Fragment key={tool.id}>
               {/* Connection Line */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible">
+              <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible hidden md:block">
                 <motion.line
                   x1="50%"
                   y1="50%"
